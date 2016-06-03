@@ -1,0 +1,9 @@
+###编译
+
+ **using ` instead of '**
+
+`g++ ufacedetect.cpp -o ufacedetect 'pkg-config --cflags --libs opencv'` 
+
+###运行
+
+`./ufacedetect --cascade="./haarcascade_frontalface_alt_tree.xml" --nested-cascade="./haarcascade_eye.xml" --scale=1.3`

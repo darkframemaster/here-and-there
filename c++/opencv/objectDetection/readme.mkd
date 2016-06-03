@@ -1,0 +1,7 @@
+##this direction include
+* ./haarcascades which include the xml file to run the object.such as `haarcascade_eye_tree_eyeglasses.xml` or something else.
+* Facedetect include a few samples about facedetect.See more in ./Facdetect/README.mkd
+* A sample opject named objectDetection2.cpp 
+
+###运行objectDetection
+`./objectDetection --cascade="./haarcascade_frontalface_alt.xml" --nested-cascade="./haarcascade_eye_tree_eyeglasses.xml" --scale=1.3`
