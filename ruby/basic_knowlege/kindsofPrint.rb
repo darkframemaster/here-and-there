@@ -15,7 +15,7 @@ print <<EOF
 	Like this...
 	
 	And you can use "print <<something"
-	something in  here most follow '<<' without any space,something can be astring or "string" 
+	something in  here most follow '<<' without any space,something can be a string or "string" 
 	
 EOF
 

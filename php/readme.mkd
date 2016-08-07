@@ -1,0 +1,39 @@
+#php
+## 1. install php in ubuntu.
+1. Things we need:
+    * apache2.0
+    * php7.0
+    * mysql (already installed)
+2. Install
+    * `sudo apt instll apache2.0 php7.0 libapache2-mod-php7.0 php7.0-mysql`
+    * the config file of php-apache is located in `/etc/php/7.0/apache2/php.ini`.
+3. Test
+    * To make less problem shutdown other server like nginx if you are running one.
+    * To run apache2 server:`sudo /etc/init.d/apache2 restart`.
+    * write a php script. (eg:`/var/www/html/init/test.php`)
+    	* the path `/var/www/html/` is the default website for the apache2.
+    * check the website `localhost/init/test.php`
+
+## 2. Apache
+### config file location
+* /etc/apache2/
+	* this is root path of the config files.
+
+
+## 3. php
+### simple introduce
+php is a language that can easyly work with html,to run a php script you need a web-server's(Apache or Nginx) support.
+
+### hello php
+* `<?php ?>`
+    * All the php code should be written in these structure.
+* `echo` & `print`
+    * The way to output in php.
+* `$`
+    * To get a variable's value.eg: `$_GET`
+* `_GET`
+    * A super-global variable in php witch stores the data of a GET method request.
+* `_POST`
+    * A super-global variable in php witch stores the data of a POST method request.
+* `_REQUEST`
+    * A super-global variable in php witch stores the data of a GET/POST method request.         

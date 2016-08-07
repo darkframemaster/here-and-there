@@ -17,3 +17,6 @@ puts "\n" + "I am running " + `ruby --version`
 puts "\n" + "And processes contain ruby is:"
 puts `ps -ax | grep ruby`
 
+puts "\n" + "You can use a variable to save the result!like this"
+sys_info = `ps -ax | grep ruby`
+puts sys_info
