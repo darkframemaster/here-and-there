@@ -6,13 +6,15 @@
     * mysql (already installed)
 2. Install
     * `sudo apt instll apache2.0 php7.0 libapache2-mod-php7.0 php7.0-mysql`
-    * the config file of php-apache is located in `/etc/php/7.0/apache2/php.ini`.
 3. Test
     * To make less problem shutdown other server like nginx if you are running one.
     * To run apache2 server:`sudo /etc/init.d/apache2 restart`.
     * write a php script. (eg:`/var/www/html/init/test.php`)
     	* the path `/var/www/html/` is the default website for the apache2.
-    * check the website `localhost/init/test.php`
+    * Check the website `localhost/init/test.php`
+4. Configurations
+    * The config file of php-apache is located in `/etc/php/7.0/apache2/php.ini`,edit this to change default configs.
+    * Setting `display_errors = on` & `error_reporting = E_ALL` to display error informations.
 
 ## 2. Apache
 ### config file location
@@ -37,3 +39,6 @@ php is a language that can easyly work with html,to run a php script you need a 
     * A super-global variable in php witch stores the data of a POST method request.
 * `_REQUEST`
     * A super-global variable in php witch stores the data of a GET/POST method request.         
+
+### work with XML
+* install lib for xml:`sudo apt install php7.0-xml`
