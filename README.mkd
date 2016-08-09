@@ -1,5 +1,5 @@
 ##About this repo
-I put the Something piecemeal in this repo for any languages and any kindof works.
+I put Something piecemeal in this repo for any languages and any kindof works.
 
 ##About the directories
 ```
@@ -19,7 +19,7 @@ here-and-there/		<--root directory
 |
 +- code/			<--...
 |
-+- reading_note/		<--Note of books
++- reading_note/		<--Note of books.
 |
 +- just-for-fun/ 		<--things code for fun.
 ```

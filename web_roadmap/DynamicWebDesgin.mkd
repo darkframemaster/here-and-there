@@ -1,5 +1,5 @@
 #Dynamic Web Desgin
-> These code are not runable,if you want to run these code please be check the `php` part of `hereandthere`
+> If you want to run these code please check `hereandthere/php` part for details,suggest making a softlink to test code.
 
 ##Libs
 * YUI(yooho)

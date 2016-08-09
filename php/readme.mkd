@@ -17,7 +17,7 @@
 ## 2. Apache
 ### config file location
 * /etc/apache2/
-	* this is root path of the config files.
+	* this is the root path of the config files.
 
 
 ## 3. php
