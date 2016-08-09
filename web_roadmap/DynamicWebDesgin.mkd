@@ -72,7 +72,7 @@ google use this technology it means when you type the things you want to search 
 
 
 ### To write a XML file:
-* Declaration of a XML file: `<?xml version="1.0" encoding="UTF-8">`
+* Declaration of a XML file: `<?xml version="1.0" encoding="UTF-8"?>`
 * Use for common: `<!-- -->`
 * There is only one root element.
 * Any element that is opened must be closed.
