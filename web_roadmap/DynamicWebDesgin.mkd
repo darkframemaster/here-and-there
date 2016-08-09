@@ -51,11 +51,61 @@ google use this technology it means when you type the things you want to search 
 
 
 ## 4. XML
-> xml is a file to store data.
+> xml is a HTML-like file to store data.
   
 ### Good & Bad
-* Define your data structure.
-* Capability of searching.
+* Define your data structure,and you can change the structure.
+* Capability of searching by using XPATH.
 * You can use a XML to take place of a DB,but just for a resonable size of data.
 * XML need to be read from the disk,so the performence is worse than DB.
 
+
+### Content Models
+* Element Content
+    * `<student><status>...<status></student>`
+* Parsed Character Data
+    * `<name>xue hao</name>` 
+* Mixed Content
+    * `<name>Xue <initial>D<initial> Hao</name>` 
+* No Content
+    * `<dorm/>` 
+
+
+### To write a XML file:
+* Declaration of a XML file: `<?xml version="1.0" encoding="UTF-8">`
+* Use for common: `<!-- -->`
+* There is only one root element.
+* Any element that is opened must be closed.
+* Attributes
+    * Name
+        * Must start with letter or underscore.
+    * Value:
+        * Can be of several types,but is almost always a string.
+        * An attribute value must be quoted("value"/'value').
+        * Cannot contain < or &, use entities to replace these characters.
+* Entities
+    * Used to "escape" content or include content that is hard to enter or repeated frequently
+    * Five pre-defined entities:
+        * `&amp; -> '&'`
+        * `&lt; -> '<'`
+        * `&gt; -> '>'`
+        * `&apos; -> '''`
+        * `&quot; -> '"'`
+    * Character entities can refer to a single character by unicode number:
+        * `&#x00A9; -> 'coperight icon'`
+    * Must be declared to be legal:
+        * To define a entity for 'space': `<!ENTITY nbsp "&#160;">`
+    * Cannot refer to themselves
+* CData
+    * Parsed in "one chunk" by the XML  parser
+    * Data within is not checked for subelements,entities,etc
+    * Allows you to include badly formed markup or character data that would cause a problem during parsing
+    * Example
+        * including HTML tags in an XML document
+
+### Work with PHP
+> Please check this part in 'hereandthere/php'.
+ 
+## 5. Security
+* Cross Site Scripting Attacks
+    * PHP function `htmlspecialchars`: Converting anything potentially dangerous to their entity equivalents,this can make a dangerous script to a normal string.
