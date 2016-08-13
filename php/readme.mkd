@@ -40,5 +40,8 @@ php is a language that can easyly work with html,to run a php script you need a 
 * `_REQUEST`
     * A super-global variable in php witch stores the data of a GET/POST method request.         
 
-### work with XML
+### work with XML & XPATH
 * install lib for xml:`sudo apt install php7.0-xml`
+
+### work with MySQL
+Tool: `phpMyAdmins`

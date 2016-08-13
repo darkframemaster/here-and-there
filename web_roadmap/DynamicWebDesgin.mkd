@@ -52,7 +52,10 @@ google use this technology it means when you type the things you want to search 
 
 ## 4. XML
 > xml is a HTML-like file to store data.
-  
+
+### DOM
+DOM is the shortcut of the **document object model**.
+
 ### Good & Bad
 * Define your data structure,and you can change the structure.
 * Capability of searching by using XPATH.
@@ -105,7 +108,22 @@ google use this technology it means when you type the things you want to search 
 
 ### Work with PHP
 > Please check this part in 'hereandthere/php'.
- 
-## 5. Security
+
+## 5. XPATH
+> A query language to search things in XML.
+
+### use path to locate a attribute or element.
+```
+/child::lectures/child::lecture[@number='0']
+
+/lectures/lecture[@number='0']
+```
+* `child` is the axis
+* `lectures` and `lecture` is some elements
+* `@number='0'` is the predicate, `number` is the attribute of the `lecture`
+* `@` is a shortcut for `attribute`,`child` can be ignored.
+
+
+## 6. Security
 * Cross Site Scripting Attacks
     * PHP function `htmlspecialchars`: Converting anything potentially dangerous to their entity equivalents,this can make a dangerous script to a normal string.

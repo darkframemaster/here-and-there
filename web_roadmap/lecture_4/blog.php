@@ -32,6 +32,15 @@
 			print("</ul>");
 			print("</li>");
 		}
+	
+		$results = $dom->xpath("/blogs/blog[@number='1']");
+		if(count($results) == 1)
+		{
+			$item = $results[0];
+			print("<br />");
+			print('search result:');
+			print("<b>$item->title</b>");
+		}
 	?>
 	</ul>
 </body>
