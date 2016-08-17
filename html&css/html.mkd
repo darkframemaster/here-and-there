@@ -45,7 +45,7 @@
     * `color`
         * `<h1 style="font-size: 40px; color: red">Example</h1>`
     * `font-family`
-        * `Arial,Verdana,Impact`
+        * `Arial,Verdana,Impact,Courier,Garamond`
         * `<li style="font-size: 10px; font-family: Impact">This item is small Impact.</li>`
     * `background-color`
     * `text-align`
