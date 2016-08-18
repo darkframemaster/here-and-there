@@ -147,14 +147,22 @@ objectName['key'] = value;
 objectName.key = value;
 ```
 
+**for structure for object**
+```
+for(var property in Object){
+    do sth with property;
+}
+```
+
 **method in object**
 ```
 /* define a method in the object */
 var objectName = {
     methodName = function(params){
         do sth;
-    };
+    }
 }
+// no need for a ; at the end of the defination of method in this way.
 
 var objectName = new Object();
 objectName.methodName = function (params){
@@ -170,20 +178,126 @@ objectName.methodName = methodName;
 
 **constructor**
 ```
-/* define a constructor.
-*  use key-word new to construct a new variable.
+/*
+* define a constructor.
+* use key-word new to construct a new variable.
+* you can also define a function for the constructor.
+*
+* The constructor is quiet like a Class.
+* The way of define a constructor is different from a function.
 */
 
 function Dog(age, name){
     this.age = age;
     this.name = name;
+
+    this.describe = function(){
+        console.log("This is a dog named "+this.name+" it is "+this.age+" years old");
+    };
 }
+// no ; at the end of the defination.
 
 var singleDog = new Dog(22, 'xuehao');
+singleDog.describe();
+```
+
+## object-oriented programming in JS
+### constructor & class
+When you make a constructor, you are in fact defining a new class.
+
+### Public and Private
+In JavaScript all properties of an object are **automatically public**.
+
+**Public** means that they can be accessed outside the class.
+
+**Private** variables are pieces of information you do not want to publicly share, and they can only be directly accessed from within the class.
+
+```
+function Person(first,last,age) {
+   this.firstname = first;
+   this.lastname = last;
+   this.age = age;
+   var bankBalance = 7500;
+}
+
+// create your Person 
+var john = new Person('deep', 'john', 22);
+
+// try to print his bankBalance, it won't work.
+console.log(john.bankBalance);
 
 ```
 
-### build-in functions
+### inherits
+```
+// the original Animal class and sayName method
+function Animal(name, numLegs) {
+    this.name = name;
+    this.numLegs = numLegs;
+}
+Animal.prototype.sayName = function() {
+    console.log("Hi my name is " + this.name);
+};
+
+// define a Penguin class
+function Penguin(name){
+    this.name = name;
+    this.numLegs = 2;
+}
+
+// set its prototype to be a new instance of Animal
+// This is inherit.
+Penguin.prototype = new Animal();
+
+var penguin = new Penguin("penguin");
+penguin.sayName();
+```
+
+### use `prototype` to add a method for class: `Class.prototype.method = function(){}`
+```
+/* you can add a method for a special object(instance) */
+
+function Dog (breed) {
+  this.breed = breed;
+};
+
+// here we make buddy and teach him how to bark
+var buddy = new Dog("golden Retriever");
+Dog.bark = function() {
+  console.log("Woof");
+};
+buddy.bark();
+
+// here we make snoopy
+var snoopy = new Dog("Beagle");
+// it does not works!
+snoopy.bark();
+```
+
+```
+/* you can add a method for the class using prototype */
+
+function Dog (breed) {
+  this.breed = breed;
+};
+
+// here we make buddy and teach him how to bark
+var buddy = new Dog("golden Retriever");
+Dog.prototype.bark = function() {
+  console.log("Woof");
+};
+buddy.bark();
+
+// here we make snoopy
+var snoopy = new Dog("Beagle");
+// this time it works!
+snoopy.bark();
+```
+
+## build-in functions
 * `isNaN(var)`
+* `typeof things`
+* **Object functions**
+    * `Object.hasOwnProperty('property');`
 
 
