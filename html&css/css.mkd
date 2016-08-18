@@ -110,3 +110,11 @@ selector:pseudo-class_selector{
     * You can think of the HTML page as sort of like a sea, and floating elements as boats on it: all the boats have positions on the sea, and they all see and steer clear of each other.
     * `float: right;`
     * `left`
+* `clear`:
+    * it will clear elements out of the way of the elements floating on the `left` or `right`.
+    * `clear: left,right,both;`
+* `position`
+    * `position: absolute,relative,fixed`
+* `z-index`:
+    * the higher an element's z-index, the higher it will be "stacked" on the page. 
+    * `z-index: 1;`
