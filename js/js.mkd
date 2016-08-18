@@ -1,0 +1,189 @@
+#JavaScript
+
+## what can we use JavaScript for? 
+* make websites respond to user interaction
+* build apps and games (e.g. blackjack)
+* access information on the Internet (e.g. find out the top trending words on Twitter by topic)
+* organize and present data (e.g. automate spreadsheet work; data visualization)
+
+## opetators:
+* `>`
+* `<`
+* `<=`
+* `>=`
+* `===` Equal to
+* `!==` Not equal to
+* `%`
+* `&&`
+* `||`
+* `!`
+
+## datatype:
+* number:
+    * `4`,`3.14159`
+* string
+    * `a-z`,`what ever it is.`
+    * `"string".length`
+    * `"some word".substring(0,3)` is `so`
+* booleans:
+    * `True`,`False`,`1`,`0`,`5 > 4`
+
+
+## input & output
+* **input:**
+    * `prompt("what do you want to input?");`
+* **output**
+    * `confirm("information");`
+    * `console.log("information");`
+
+## syntax
+### variables
+```
+/* define a variable */
+
+var anyVariable = "initvalue";
+```
+
+### array
+```
+/* define a array */
+
+var cities = ["Melbourne", "Amman", "Helsinki", "NYC", 1, true];
+
+for (var i = 0; i < cities.length; i++) {
+    console.log("I would like to visit " + cities[i]);
+}
+```
+
+### function
+```
+/* define a function:
+*  { } must end with a semi-colon.
+*/
+
+var functionName = function(param1, param2, ...){
+    do sth with params;
+};
+```
+
+### if structure
+```
+if(condition){
+    do sth;
+}
+
+if(condition){
+    do sth;
+}
+else if{
+    do sth;
+}
+else{
+    do sth;
+}
+```
+
+### switch statement
+```
+var lunch = prompt("What do you want for lunch?","Type your lunch choice here");
+
+switch(lunch){
+  case 'sandwich':
+    console.log("Sure thing! One sandwich, coming up.");
+    break;
+  case 'soup':
+    console.log("Got it! Tomato's my favorite.");
+    break;
+  case 'salad':
+    console.log("Sounds good! How about a caesar salad?");
+    break;
+  case 'pie':
+    console.log("Pie's not a meal!");
+    break;
+  default:
+    console.log("Huh! I'm not sure what " + lunch + " is. How does a sandwich sound?");
+}
+```
+
+### for structure
+```
+for(var i=0; i<100; i++){
+    do sth;
+}
+```
+
+### while loop
+```
+/* Use while when you don't know in advance when to stop looping */
+
+while(condition){
+    do sth;
+}
+
+/* Use `do/while` structure to make sure your loop runs at least one time */
+do{
+    do sth;
+}while
+```
+
+### object
+**property in object**
+```
+/* define a object */
+
+var objectName = {
+    key: value,
+    key: value,
+    ...
+    key: value
+};
+
+
+/* another way */
+var objectName = new Object();
+
+/* give value to a key */
+objectName['key'] = value;
+objectName.key = value;
+```
+
+**method in object**
+```
+/* define a method in the object */
+var objectName = {
+    methodName = function(params){
+        do sth;
+    };
+}
+
+var objectName = new Object();
+objectName.methodName = function (params){
+    do sth;
+};
+
+/* define a method out of a object using this */
+var methodName = function(params){
+    do sth with keyword `this`.
+};
+objectName.methodName = methodName;
+```
+
+**constructor**
+```
+/* define a constructor.
+*  use key-word new to construct a new variable.
+*/
+
+function Dog(age, name){
+    this.age = age;
+    this.name = name;
+}
+
+var singleDog = new Dog(22, 'xuehao');
+
+```
+
+### build-in functions
+* `isNaN(var)`
+
+
