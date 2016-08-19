@@ -208,24 +208,46 @@ When you make a constructor, you are in fact defining a new class.
 ### Public and Private
 In JavaScript all properties of an object are **automatically public**.
 
-**Public** means that they can be accessed outside the class.
+**Public** means that they can be accessed outside the class.**key word:**`this`.
 
-**Private** variables are pieces of information you do not want to publicly share, and they can only be directly accessed from within the class.
+**Private** variables are pieces of information you do not want to publicly share, and they can only be directly accessed from within the class.**key word:**`var`.Using private property in method without `this`.
 
 ```
 function Person(first,last,age) {
+   // public property
    this.firstname = first;
    this.lastname = last;
    this.age = age;
+   // private property
    var bankBalance = 7500;
+
+   // private method
+   var returnBalance = function() {
+      return bankBalance;
+   };
+   // public method
+   this.askTeller = function(){
+        return returnBalance;
+   };
 }
 
-// create your Person 
-var john = new Person('deep', 'john', 22);
+var john = new Person('John','Smith',30);
+console.log(john.returnBalance);
+var myBalanceMethod = john.askTeller();
+var myBalance = myBalanceMethod();
+console.log(myBalance);
 
-// try to print his bankBalance, it won't work.
-console.log(john.bankBalance);
 
+```
+###prototype
+>prototype ：蓝本，原型
+```
+// in JS Object.prototype is also a Object.
+var prototypeType = typeof Object.prototype;
+console.log(prototypeType);
+
+var hasOwn = Object.prototype.hasOwnProperty("hasOwnProperty");
+console.log(hasOwn);
 ```
 
 ### inherits
@@ -296,8 +318,9 @@ snoopy.bark();
 
 ## build-in functions
 * `isNaN(var)`
+    * return `true` or `false`.
 * `typeof things`
+    * return a `string` object.
+    * `console.log(typeof 1)` return `number`.
 * **Object functions**
     * `Object.hasOwnProperty('property');`
-
-
