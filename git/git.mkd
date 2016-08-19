@@ -75,7 +75,7 @@ Steps 1 and 4 are a safeguard against merge conflicts, which occur when two bran
 
 ### clone the repo to local
 * `git clone remote_location clone_name`
-    * 
+    * clone a repo from `remote_location` to local named as `clone_name`
 * `git remote -v`
     * list the remotes.
     * One thing that Git does behind the scenes when you clone a repo is give the remote address the name `origin`, so that you can refer to it more conveniently.
