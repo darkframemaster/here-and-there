@@ -1,0 +1,5 @@
+#extra lib
+## installed
+* `php7.0-zip`
+* `php-zip`
+* `php-zipstreamer`
