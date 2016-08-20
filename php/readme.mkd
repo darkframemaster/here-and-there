@@ -26,20 +26,7 @@
 ### simple introduce
 php is a language that can easyly work with html,to run a php script you need a web-server's(Apache or Nginx) support.
 
-### hello php
-* `<?php ?>`
-    * All the php code should be written in these structure.
-* `echo` & `print`
-    * The way to output in php.
-* `$`
-    * To get a variable's value.eg: `$_GET`
-* `_GET`
-    * A super-global variable in php witch stores the data of a GET method request.
-* `_POST`
-    * A super-global variable in php witch stores the data of a POST method request.
-* `_REQUEST`
-    * A super-global variable in php witch stores the data of a GET/POST method request.         
-
+## 4. php extensions
 ### work with XML & XPATH
 * install lib for xml:`sudo apt install php7.0-xml`
 

@@ -1,0 +1,26 @@
+#PHP
+## Basic
+* `<?php ?>`
+    * All the php code should be written in these structure.
+* `_GET`
+    * A super-global variable in php witch stores the data of a GET method request.
+* `_POST`
+    * A super-global variable in php witch stores the data of a POST method request.
+* `_REQUEST`
+    * A super-global variable in php witch stores the data of a GET/POST method request.
+
+## output
+* `echo`
+    * The way to output in php.
+* `print`
+
+## String
+```
+// '.' can connect strings.
+echo "Hello"." "."World!";
+```
+
+## Variables
+* `$`
+    * To define a variable: `$myName = 'darkframexue'`
+    * To get a variable's value.eg: `echo $myName`
