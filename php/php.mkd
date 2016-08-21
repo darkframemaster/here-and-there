@@ -1,5 +1,5 @@
 #PHP
-## Basic
+## basic
 * `<?php ?>`
     * All the php code should be written in these structure.
 * `_GET`
@@ -8,6 +8,39 @@
     * A super-global variable in php witch stores the data of a POST method request.
 * `_REQUEST`
     * A super-global variable in php witch stores the data of a GET/POST method request.
+
+## operators
+* `>`
+* `<`
+* `<=`
+* `>=`
+* `==`
+* `!=`
+* `||`
+* `&&`
+* `!`
+
+## variables
+* `$`
+    * To define a variable: `$myName = 'darkframexue'`
+    * To get a variable's value.eg: `echo $myName`
+
+## build-in functions
+### Math Functions
+```
+<?php
+
+// round()
+// get part of a float number.
+$round = round(M_PI); // M_PI is a PHP constant.
+$round_decimal = round(M_PI, 4); // round pi to 4 place.
+
+// rand()
+echo rand();
+echo rand(1, 10);
+
+?>
+```
 
 ## output
 * `echo`
@@ -18,9 +51,185 @@
 ```
 // '.' can connect strings.
 echo "Hello"." "."World!";
+
+// strlen()
+$length = strlen("string");
+
+// substr()
+$substring = substr("string", 0, 3);
+
+// strtoupper()
+$uppercase = strtoupper("string");
+
+// strtolower()
+$lowercase = strtolower("string");
+
+//strpos()
+// return index of the char or false
+strpos("darkframexue", "x");
 ```
 
-## Variables
-* `$`
-    * To define a variable: `$myName = 'darkframexue'`
-    * To get a variable's value.eg: `echo $myName`
+## array
+```
+<?php
+$arrayName = array(1, 2, 3, 4, 5);
+
+// get value indexed
+echo $arrayName[index];
+echo $arrayName{index};
+$arrayName[index] = newValue;
+$arrayName{index} = newValue;
+
+// delete value
+unset($arrayName[index]);
+unset($arrayName);  // delete the whole list
+
+// array_push()
+// add a element to the end of the array
+array_push($arrayName, 6);
+
+// count()
+// return the number of the elements in array
+count($arrayName);
+
+// sort()
+sort($arrayName);
+
+// rsort()
+rsort($arrayName);
+
+// join()
+join(",", $arrayName);
+s
+?>
+```
+
+## if statements
+```
+<?php
+if (condition){
+    do sth;
+}
+elseif {
+    do sth;
+}
+else{
+    do sth;
+}
+?>
+```
+
+## swich statements
+### curly brace syntax
+```
+<?php
+    switch (2) {
+        case 0:
+            do sth;
+            break;
+        case 1:
+            do sth;
+            break;
+        case 2:
+            do sth;
+            break;
+        default:
+            do sth;
+    }
+?>
+```
+
+```
+//falling through
+
+<?php
+    $i = 5;
+
+    switch ($i) {
+        case 0:
+            echo '$i is 0.';
+            break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            echo '$i is somewhere between 1 and 5.';
+            break;
+        case 6:
+        case 7:
+            echo '$i is either 6 or 7.';
+            break;
+        default:
+            echo "I don't know how much \$i is.";
+    }
+?>
+```
+### alternative syntax
+```
+<?php
+    switch ($i):
+        case 0:
+            echo '$i is 0.';
+            break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            echo '$i is somewhere between 1 and 5.';
+            break;
+        case 6:
+        case 7:
+            echo '$i is either 6 or 7.';
+            break;
+        default:
+            echo "I don't know how much \$i is.";    
+    endswitch;
+?>
+```
+
+## loop loop
+### for statement
+```
+for ($var = startcondition; $var = endcondition; change $var){
+    do sth;
+}
+
+
+// example
+<?php
+for ($i = 10; $i <= 100; $i += 10){
+    echo $i;
+}
+?>
+```
+### foreach statement
+```
+foreach ($fatherList as $element){
+    do sth;
+}
+
+<?php
+    $sentence = array("I'm ", "learning ", "PHP!");
+        
+    foreach ($sentence as $word) {
+        echo $word;
+    }
+?>
+```
+
+### while statement
+```
+while (condition){
+    do sth;
+}
+
+while (condition):
+    do sth;
+endwhile;
+
+do{
+    do sth;
+}while (condition);
+```

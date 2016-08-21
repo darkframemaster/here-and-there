@@ -161,7 +161,7 @@ var objectName = {
     methodName = function(params){
         do sth;
     }
-}
+};
 // no need for a ; at the end of the defination of method in this way.
 
 var objectName = new Object();
