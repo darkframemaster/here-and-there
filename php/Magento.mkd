@@ -1,0 +1,11 @@
+# Magento
+
+## install
+* Download the current version of Magento
+* Store it using apache or any server.
+* Install step by step.
+
+### issues 
+* [All Errors during installation](http://devdocs.magento.com/guides/v2.1/install-gde/trouble/php/tshoot_install-main.html)
+* [Setup Wizard installazion stops at about 70%](http://devdocs.magento.com/guides/v2.1/install-gde/trouble/php/tshoot_70pct.html)
+
