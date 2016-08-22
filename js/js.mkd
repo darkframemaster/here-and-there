@@ -241,6 +241,7 @@ console.log(myBalance);
 ```
 ###prototype
 >prototype ：蓝本，原型
+
 ```
 // in JS Object.prototype is also a Object.
 var prototypeType = typeof Object.prototype;
