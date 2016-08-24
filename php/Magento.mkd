@@ -1,11 +1,145 @@
-# Magento
+# agento
 
 ## install
 * Download the current version of Magento
 * Store it using apache or any server.
 * Install step by step.
 
-### issues 
+### issues
 * [All Errors during installation](http://devdocs.magento.com/guides/v2.1/install-gde/trouble/php/tshoot_install-main.html)
 * [Setup Wizard installazion stops at about 70%](http://devdocs.magento.com/guides/v2.1/install-gde/trouble/php/tshoot_70pct.html)
+* [After installing, images and stylesheets do not load; only text displays, no graphics](http://devdocs.magento.com/guides/v2.1/install-gde/trouble/tshoot_no-styles.html)
+    * `magento setup:static-content:deploy`
+
+## command line
+> Magento has one command-line interface that performs both installation and configuration tasks: `<your Magento install dir>/bin/magento`
+### settings for command line
+* run command as the Magento file system owner.
+* To run Magento commands from any directory,add `<your Magento install dir>/bin/magento` to your system `PATH`: `export PATH = $PATH:/var/www/html/magento/bin`
+
+## Directories
+* `var` :By default, Magento uses the var directories to store the cache, logs, and compiled code. You can customize this directory but in this guide, it's assumed to be var.
+
+## Administrator
+### Configuration Guide
+#### Set the Magento mode
+* Display current mode: `./magento deploy:mode:show`
+* Change modes: `magento deploy:mode:set {mode} [-s|--skip-compilation]`
+    * `mode` is required,it can be either `developer` or `production`
+    * `--skip-compilation` is an optional parameter you can use to skip code compilation when you change to production mode.
+    * change to production mode: 
+        * `magento deploy:mode:set production`
+    * change to developer mode: 
+        1. If you’re changing from production mode to developer mode, delete the contents of the var/generation and var/di directories: `rm -rf <your Magento install dir>/var/di/* <your Magento install dir>/var/generation/* `
+        2. `magento deploy:mode:set developer`
+
+## Frontend Developer Guide
+### Conventional notations for paths to modules and themes
+* `<theme_dir>`:
+    * `app/design/frontend/Magento/<theme>`
+    * `vendor/magento/theme-fronted-<theme>`
+* `<module_dir>`:
+    * `app/code/Magento/<Module>`
+    * `vendor/magento/module-<module>-<name>`
+
+## Themes
+A theme is a component of Magento application which provides a consistent look and feel (visual design) for entire application area (for example, storefront or Magento admin) using a combination of custom templates, layouts, styles or images.
+
+Out-of-the-box Magento application provides two design themes: Luma, as a demonstration theme, and Blank as a basis for custom theme creation.Strongly recommend not to change the default Luma and Blank theme files.
+
+The theme inheritance concept implemented in the Magento system allows you changing only certain theme files, and inheriting the rest necessary files from a parent theme.
+### static file processing
+Magento use fallback mechanism to search view file.
+
+### Add a theme: walkthrough
+#### Create a storefront theme
+1. Set Magento mode to developer
+2. Create a theme directory
+    * `cd <path to magento>/app/design/frontend`
+    * `mkdir {Ventor}`
+    * `mkdir {Ventor}/{theme_name}`
+#### Declare your theme
+1. Add or copy from an existing `theme.xml` to your theme directory `app/design/frontend/<Vendor>/<theme>`
+2. Configure it using the following example:
+3. if you change the title or parent theme of the `theme.xml` file after a theme already registered you need to reload to make it work.
+
+```
+<theme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/theme.xsd">
+<title>New theme</title> <!-- your theme's name -->
+<parent>Magento/blank</parent> <!-- the parent theme, in case your theme inherits from an existing theme -->
+<media>
+<preview_image>media/preview.jpg</preview_image> <!-- the path to your theme's preview image -->
+</media>
+</theme>
+```
+
+#### Add registration.php
+1. Add a `registration.php` file in `<path to magento>/app/design/frontend/Ventor/theme_name/`
+2. Edit file as follow:
+
+```
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+\Magento\Framework\Component\ComponentRegistrar::register(
+    \Magento\Framework\Component\ComponentRegistrar::THEME,
+    'frontend/<Vendor>/<theme>',
+    __DIR__
+);
+?>
+```
+#### Configure images
+> Product image sizes and other properties used on the storefront are configured in a view.xml configuration file. It is required for a theme, but is optional if exists in the parent theme.
+
+#### Create directores for static files
+> Your theme will likely contain several types of static files: styles, fonts, JavaScript and images. Each type should be stored in a separate sub-directory of web in your theme folder:
+
+```
+app/design/<area>/<Vendor>/<theme>/
+├── web/
+│ ├── css/
+│ │ ├── source/ 
+│ ├── fonts/
+│ ├── images/
+│ ├── js/
+```
+
+> During theme development, when you change any files stored here, you need to clear pub/static and var/view_preprocessed directories, and then reload the pages. Otherwise the old versions of files are displayed on the storefront.
+
+your theme directory structure now
+
+```
+app/design/frontend/<Vendor>/
+├── <theme>/
+│   ├── etc/
+│   │   ├── view.xml
+│   ├── web/
+│   │   ├── images
+│   │   │   ├── logo.svg
+│   ├── registration.php
+│   ├── theme.xml
+│   ├── *composer.json
+```
+
+### Theme logo
+> In the Magento application, the default format and name of a logo image is `logo.svg`. When you put a logo.svg image in the conventional location, which is `<theme_dir>/web/images` directory, it is automatically recognized as theme logo. It is displayed in your store page header once the theme is applied.
+
+* To declare a theme logo, add an extending `<theme_dir>/Magento_Theme/layout/default.xml` layout.
+* Edit as follow:
+
+```
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/my_logo.png</argument>
+                <argument name="logo_img_width" xsi:type="number">300</argument> 
+                <argument name="logo_img_height" xsi:type="number">300</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>
+```
 
