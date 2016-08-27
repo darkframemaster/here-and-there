@@ -1,0 +1,16 @@
+# PHP developer guide
+## About component file structure
+### root directory location
+* `<magento install directory>/app`
+	* For modules: `app/code`
+	* For store front themes: `app/design/frontend`
+	* For Admin themes: `app/design/adminhtml`
+	* For language packages: `app/i18n`
+* `<magento install directory>/vendor`
+
+
+### required files
+Files required for all components:
+* `registration.php`: This file specifies the directory in which the component is installed by vendors in production environments.
+* `composer.json`: Specifies component dependencies and other metadata.
+

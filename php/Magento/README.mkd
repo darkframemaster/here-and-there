@@ -1,0 +1,16 @@
+# About Magento2
+
+## command line
+> Magento has one command-line interface that performs both installation and configuration tasks: `<your Magento install dir>/bin/magento`
+### settings for command line
+* run command as the Magento file system owner.
+* To run Magento commands from any directory,add `<your Magento install dir>/bin/magento` to your system `PATH`: `export PATH = $PATH:/var/www/html/magento/bin`
+
+## file structure
+* `var` :By default, Magento uses the var directories to store the cache, logs, and compiled code. You can customize this directory but in this guide, it's assumed to be var.
+
+
+## metapackage
+An empty package that contains requirements and will trigger their installation, but contains no files and will not write anything to the filesystem. As such, it does not require a dist or source key to be installable.
+
+Magento Marketplace requires more than one component to be packaged as a metapackage, which consists of only a composer.json that specifies individual components and their dependencies. (Magento Marketplace also refers to a metapackage as an extension.)

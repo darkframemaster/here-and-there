@@ -1,38 +1,3 @@
-# agento
-
-## install
-* Download the current version of Magento
-* Store it using apache or any server.
-* Install step by step.
-
-### issues
-* [All Errors during installation](http://devdocs.magento.com/guides/v2.1/install-gde/trouble/php/tshoot_install-main.html)
-* [Setup Wizard installazion stops at about 70%](http://devdocs.magento.com/guides/v2.1/install-gde/trouble/php/tshoot_70pct.html)
-* [After installing, images and stylesheets do not load; only text displays, no graphics](http://devdocs.magento.com/guides/v2.1/install-gde/trouble/tshoot_no-styles.html)
-    * `magento setup:static-content:deploy`
-
-## command line
-> Magento has one command-line interface that performs both installation and configuration tasks: `<your Magento install dir>/bin/magento`
-### settings for command line
-* run command as the Magento file system owner.
-* To run Magento commands from any directory,add `<your Magento install dir>/bin/magento` to your system `PATH`: `export PATH = $PATH:/var/www/html/magento/bin`
-
-## Directories
-* `var` :By default, Magento uses the var directories to store the cache, logs, and compiled code. You can customize this directory but in this guide, it's assumed to be var.
-
-## Administrator
-### Configuration Guide
-#### Set the Magento mode
-* Display current mode: `./magento deploy:mode:show`
-* Change modes: `magento deploy:mode:set {mode} [-s|--skip-compilation]`
-    * `mode` is required,it can be either `developer` or `production`
-    * `--skip-compilation` is an optional parameter you can use to skip code compilation when you change to production mode.
-    * change to production mode: 
-        * `magento deploy:mode:set production`
-    * change to developer mode: 
-        1. If you’re changing from production mode to developer mode, delete the contents of the var/generation and var/di directories: `rm -rf <your Magento install dir>/var/di/* <your Magento install dir>/var/generation/* `
-        2. `magento deploy:mode:set developer`
-
 ## Frontend Developer Guide
 ### Conventional notations for paths to modules and themes
 * `<theme_dir>`:

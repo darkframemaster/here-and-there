@@ -5,7 +5,9 @@
 
 ##use
 ```
-nginx                       #启动nginx服务器
+sudo nginx                  #启动nginx服务器
+service nginx start    	    #start nginx server
+
 nginx -s quit
 nginx -s stop           #退出nginx服务
 nginx -s reload     #从新加载配置文件
