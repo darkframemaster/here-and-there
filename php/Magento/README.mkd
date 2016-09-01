@@ -1,13 +1,84 @@
 # About Magento2
 
-## command line
-> Magento has one command-line interface that performs both installation and configuration tasks: `<your Magento install dir>/bin/magento`
-### settings for command line
-* run command as the Magento file system owner.
-* To run Magento commands from any directory,add `<your Magento install dir>/bin/magento` to your system `PATH`: `export PATH = $PATH:/var/www/html/magento/bin`
-
 ## file structure
-* `var` :By default, Magento uses the var directories to store the cache, logs, and compiled code. You can customize this directory but in this guide, it's assumed to be var.
+* `app/etc/di.xml` : important file that we might often look into during development.It contains various class mappings or preferences for individual interfaces.
+* `bin/` : Where the Magento command script located.
+* `dev/` : Where we can find the Magento test scripts.
+* `lib/` : Comprises two major subdirectories,namely the server-side PHP library code and fonts found under lib/interal and the client-side JS libraries found in lib/web.	
+* `pub/` : Where the publicly exposed files are located.This is the directory that we should set as root when setting up Apache or Nginx.The `pub/index.php` file is what gets riggered when the storefront is opened in a browser.
+* `var/` : By default, Magento uses the var directories to store the cache, logs, and compiled code. We should be able to delete the content of this folder at any time and have Magento automatically recreate it.
+* `vendor/` : Where most of the code is located.This is where we can find varrois third-party vendor code,Magento modules,themems and language packs.
+	* Within `vendor/` we can find code from various vendors,magento itself can be found here.
+
+## The module filesystem structure
+Magento identifies itself as a hightly modular platform.What this means is that there is literally a location where modules as placed.The following structure belongs to `Contact` module that can be found in `vendor/magento/module-contact`:
+
+* `Block/` : Where the view-related block PHP classed are located.
+* `Controller/` : Where the controller-related PHP classes are stored.This is the code that responds to the storefront `POST` and `GET` HTTP actions.
+* `etc/` : Where the module configuration files are present.We can see files such as `module.xml`,`di.xml`,`acl.xml`,`system.xml`,`config.xml`.
+* `Helper/` : Where various helper classes are located.These classes are usually used to abstract various store configuration values into the getter methods.
+* `i18n/` : Where the module translation package CSV files are stored.
+* `Model/` : Where the entities, resource entities, collections, and various other business classes can be found.
+* `Test/` : Stores the module unit tests.
+* `view/` : Contains all the module administrator and storefront template files(`.phtml` and `.html`) and static files(`.js` and `.css`).
+* `registration.php` : A module registration file.
+* `composer.json`
+* `LICENSE.txt`
+* `LICENSE_AFL.txt`
+* `README.md`
+
+## The var directory
+Magento dose a lot of caching and autogeneration of certain class types and they are located in Magento's root `var/` directory.Here are the subdirectories:
+
+* `cache/`
+* `composer_home/`
+* `generation/`
+* `log/`
+* `di/`
+* `view_preprocessed/`
+* `page_cache/`
+
+> During development, we will most likely need to periodically clear these so that our changes can kick in.
+
+
+
+## Coding standards
+There are several coding standards that Magento abides by,such as the following ones:
+
+* The code demarcation standard
+* [The PHP coding standard](http://www.php-fig.org)
+* [The JS coding standard](https://www.google.github.io/styleguide/javascriptguide.xml)
+* The jQuery widget coding standard
+* The DocBlock standard
+* [JS DocBlock standard](http:usejsdoc.org)
+* The LESS coding standard
+
+
+
+## Service contracts
+A service contract is a set of PHP interfaces that is defined by a module.This contract comprises data interfaces and service interfaces.
+
+The role of the data interface is to preserve data integrity(数据完整性), while the role of the service interface is to hide the business logic details from service consumers.
+### Data interfaces
+**Data interfaces** define various functions,such as validation,entity information, search related functions, and so on.They are defined within the `Api/Data` directory of an data interfaces for an individual module, for example: data interfaces for cms module `vendor/magento/module-cms/Api/Data`.
+### Service interfaces
+**service interfaces** are the ones that include management, repository, and metadata interfaces.These interfaces are defined directly within the module'a `Api` directory, for example: Service interfaces for cms module `vendor/magento/module-cms/Api`.The **CRUD interface** is located in here.
+
+
+
+## Code generation
+Code generation generates **non**existent classes. These classes are genereated in Magento's `var/generation` directory. The code is generated for something that is called **Factory,Proxy and Interceptor** classes.
+
+* **Factories** are used to isolate an object manage from the business code.Factories can be dependent on the object manager,unlike business objects.
+	* For example `var/generation/Magento/Catalog/Model/ProductFactory.php` with `var/generation/Magento/Catalog/Model/Product` class.
+* **Proxy** class is a wrapper for some base class. Proxy class provide better performance because they can be instantiated(实例化) without instantiating a base class.A base class is instantiated only when one of its methods is called.This is highly convenient for cases where base class is used as a dependency, but it takes a lot of time to instantiate, and its methods are used only during some paths of execution.
+	* For example `var/generation/Magento/Catalog/Model/Session/Proxy.php` cantains the `var/generation/Magento/Catalog/Model/Session/Proxy` class.
+* **Interceptor** is yet another class type that gets autogenerated by Magento.It is related to the plugins feature.
+
+During runtime,when `{someClassName}[Factory|Proxy]` is called in the code,Magento creates a Factory/Proxy class under the `var/genertion` directory if it does not exists.
+
+In order to trigger code regeneration, we can use the code compiler that is available on the console.
+
 
 
 ## metapackage

@@ -14,3 +14,21 @@ Files required for all components:
 * `registration.php`: This file specifies the directory in which the component is installed by vendors in production environments.
 * `composer.json`: Specifies component dependencies and other metadata.
 
+
+
+## Modules and Collections
+`Model`, `resouce`, and `collection` are three types of classes working together to allow us full entity data management, from loading,saving,deleting, and listing entities.The majority of our data access and management will be done via PHP classes called Magento models.**Models** themselves donnot contain any code for communicating with the database.
+
+The database communication part is decoupled into its own PHP class called **resource class**.Each model is then assigned(分配) a resource class.Calling `load`, `save`, or `delete` methods on models get delegated(授权) to resouce classes, as they are the ones to actually read, write and delete from the database.
+
+**collection classes**: we can think of a collection as an array of individual model instances.
+
+We look at model and resource as a single unified thing `model`.Magento deal with two type of models,which we might categorize as simple and EAV models.
+
+### Create a miniature module
+Every module starts with the `registration.php` and `module.xml` files.
+
+* `registration.php` file is sort of an entry point to our module.
+* `module.xml` 
+	* `setup_version` : This value is important because we might use it within our schema install script(InstallSchema.php) files.
+	* `sequence` : This element is Magento's way of setting dependencies for our module.Given that our module will make use of EAV entities, we list `Magento_Eav` as a dependency.

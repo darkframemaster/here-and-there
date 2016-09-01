@@ -1,0 +1,16 @@
+## command line
+> Magento has one command-line interface that performs both installation and configuration tasks: `<your Magento install dir>/bin/magento`
+### settings for command line
+* run command as the Magento file system owner.
+* To run Magento commands from any directory,add `<your Magento install dir>/bin/magento` to your system `PATH`: `export PATH = $PATH:/var/www/html/magento/bin`
+
+## commands
+* Code compilation
+	* `magento setup:di:compile`: Implies one website and store.
+	* `magento setup:di:compile-multi-tenant`: Implies more than one independent Magento applicaion.
+* Clean up `var/` directory
+	* `rm -rf .../var/generation/*`: delete individual(个别的) directories.
+	* `magento setup:upgrade`: updates the Magento database schema and data. Clear `var/di/` and `var/generation` directories.
+	* `magento setup:di:compile`: clear the `var/generation` directory.
+ 	* `magento setup:mode:set`: changes the mode from the developer mode to the production mode and vice versa. clear `var/di`,`var/generation`,and `var/view_preprocessed` directories.
+	* `magento cache:clean {type}`: clean the `var/cache` and `var/page_cache` directories.
