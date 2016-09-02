@@ -1,4 +1,4 @@
-# agento
+# Magento
 
 ## install
 * get source
@@ -9,7 +9,7 @@
 		* clone a repo
 		* `composer install` in the root direction of cloned repo
 * Set permission
-	* `sudo chmod 777 var ventor`
+	* `sudo chmod 755 var ventor`
 	* other permission
 * Create database for the app
 * Store it using apache or any server.

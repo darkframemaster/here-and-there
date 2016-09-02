@@ -8,7 +8,6 @@
 	* For language packages: `app/i18n`
 * `<magento install directory>/vendor`
 
-
 ### required files
 Files required for all components:
 * `registration.php`: This file specifies the directory in which the component is installed by vendors in production environments.
@@ -21,14 +20,71 @@ Files required for all components:
 
 The database communication part is decoupled into its own PHP class called **resource class**.Each model is then assigned(分配) a resource class.Calling `load`, `save`, or `delete` methods on models get delegated(授权) to resouce classes, as they are the ones to actually read, write and delete from the database.
 
-**collection classes**: we can think of a collection as an array of individual model instances.
+**collection classes**: we can think of a collection as an array of individual(独立的) model instances.
 
 We look at model and resource as a single unified thing `model`.Magento deal with two type of models,which we might categorize as simple and EAV models.
 
 ### Create a miniature module
+> We will create a miniature module called `Foggyline_Office`.check code in `./Foggyline/`.
+
 Every module starts with the `registration.php` and `module.xml` files.
 
 * `registration.php` file is sort of an entry point to our module.
 * `module.xml` 
 	* `setup_version` : This value is important because we might use it within our schema install script(InstallSchema.php) files.
 	* `sequence` : This element is Magento's way of setting dependencies for our module.Given that our module will make use of EAV entities, we list `Magento_Eav` as a dependency.
+
+### Create a simple model
+> See `./Foggyline/Office/Model/Department.php` for model class, `./Foggyline/Office/Model/ResourceModel/Department.php` for resource class. `./Foggyline/Office/Model/ResourceModel/Department/Collection.php` for collection class.
+
+The `Foggyline` module will have a simple model entity `Department`:
+
+* Department: a simple model with the following fields:
+	* `entity_id` : primary key.
+	* `name` : name of department,string value
+
+whenever we talk about models, we implicitly think of `model class`, `resource class`, and `collection class` forming one unit.
+
+**Model class:** We extend each entity class from the `\Magento\Framework\Model\AbstractModel` class,and triggering the `$this->_init` method within `_construct` passing it our `resource class`(will be defined later).The `AbstractModel` further extends `\Magento\Framework\Object`.The fact that our model class ultimately extends from `Object` means that **we donnot have to define a property name** on our `model` class.What `Object` does for us is that it enables us to `get`,`set`,`unset`, and `check` for a value existence on properties magically.
+
+**Resource class:** We extend our resource class from `\Magento\Framework\Model\ResourceModel\Db\AbstractDb` triggers the `$this->_init` method call within `_construct`.`$this->_init` accepts two parameters.The first parameter is the **table name** ,where our model will persist its data.The second parameter is the **primary colume name** within that table.`AbstractDb` further extends `Magento\Framework\Model\ResourceModel\AbstractResource`
+> the `resource class` is the key to communicating to the database. All it takes is for us to name the table and its primary key and our models can save, delete, and update entities.
+
+**Collection class:** The `collection` class extends from `\Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection` and does a `$this->_init` method call within `_construct`.`_init` accept two parameters. The first is the full `model` class name,and the second parameter is the full `resource` class name.`AbstractCollection` implements `Magento\Framework\App\ResourceConnection\SourceProviderInterface`, and extends `Magento\Framework\Data\Collection\AbstractDb`.`AbstractDb` further extends `Magento\Framework\Data\Collection`.`collection` class is our go-to place whenever we need to deal with fetching a list of entities that match certain seach criteria(准则).
+
+### Create an EAV model
+> see `./Foggyline/Office/Model/Employee.php` for EVA model class, ``
+
+The module `Foggyline` will also have a EAV model entity"
+
+* Employee: an EAV model with the following fields:
+	* Fields:
+		* `entity_id` : primary key
+		* `department_id` : foreigh key,pointing to Department.entity_id
+		* `email` : unique e-mail of an employee,string value
+		* `first_name` : first name of an employee,sting value
+		* `second_name` : second name of an employee,string value
+	* Attributes:
+		* `service_years` : employee's year of service,integer value
+		* `dob` : employee's date of birth,date-time value
+		* `salary` : monthly salary, decimal value
+		* `vat_number` : VAT number,(short) string value
+		* `note` : possible note on employee,(long) string value
+
+The `Employee` entity ,as per requirements, is modeled as an EAV model.
+
+**EAV model class:** We extend from the `\Magento\Framework\Model\AbstractModel` class,same as simple model.The only difference here is that we have an ENTITY constant defined, but this is merely syntactical(语法) sugar for later on; it bears no meaning for the actual `model` class.
+
+**EAV resource class:** The resource class extends from `\Magento\Eav\Model\Entity\AbstractEntity`, and set the `$this->read`,`$this->_write` class properties through `_construct`.These are freely assigned to whatever value we want, preferably(最好) following the naming pattern of our module.The read and write connections need to be named or else Magento produces an error when using our entities.
+
+**EAV collection class:** The collection class extends from `\Magento\Eav\Model\Entity\Collection\AbstractCollection` and,similar to the model class, does a `$this->_init` method call within `_construct`.`_init` accepts two parameters: the full model class name and the full resource class name.
+
+### Understanding the flow of schema and data scripts
+The role of the **shchema scripts** is to create a database structure supporting your module logic.For example, creating a table where our entities would persist their data.The role of the **data scripts** is to manage the data within existing tables,usually in the form of adding some sample data during module installation.
+
+### Creating an install schema script (InstallSchema.php)
+> see `./Foggyline/Office/Setup/InstallSchema.php`.
+
+`InstallSchema` conforms to(符合) `InstallSechmaInterface`,which requires the implementation(安装启动) of the install method that accepts two parameters of type `SchemaSetupInterface` and `ModuleContextInterface`.The install method is all that is required here.Whthin this method,we would add any relevant code we might have to create the tables and columns we need.
+
+
