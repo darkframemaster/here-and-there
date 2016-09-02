@@ -1,3 +1,10 @@
+# Guide
+* install guide : `install.mkd`
+* command line guide : `commandLine.mkd`
+* `Module` development : `DevPHP.mkd`
+* `Theme` development : `DevFrontEnd.mkd`
+* code : `./code/`
+
 # About Magento2
 
 ## file structure
@@ -10,22 +17,7 @@
 * `vendor/` : Where most of the code is located.This is where we can find varrois third-party vendor code,Magento modules,themems and language packs.
 	* Within `vendor/` we can find code from various vendors,magento itself can be found here.
 
-## The module filesystem structure
-Magento identifies itself as a hightly modular platform.What this means is that there is literally a location where modules as placed.The following structure belongs to `Contact` module that can be found in `vendor/magento/module-contact`:
 
-* `Block/` : Where the view-related block PHP classed are located.
-* `Controller/` : Where the controller-related PHP classes are stored.This is the code that responds to the storefront `POST` and `GET` HTTP actions.
-* `etc/` : Where the module configuration files are present.We can see files such as `module.xml`,`di.xml`,`acl.xml`,`system.xml`,`config.xml`.
-* `Helper/` : Where various helper classes are located.These classes are usually used to abstract various store configuration values into the getter methods.
-* `i18n/` : Where the module translation package CSV files are stored.
-* `Model/` : Where the entities, resource entities, collections, and various other business classes can be found.
-* `Test/` : Stores the module unit tests.
-* `view/` : Contains all the module administrator and storefront template files(`.phtml` and `.html`) and static files(`.js` and `.css`).
-* `registration.php` : A module registration file.
-* `composer.json`
-* `LICENSE.txt`
-* `LICENSE_AFL.txt`
-* `README.md`
 
 ## The var directory
 Magento dose a lot of caching and autogeneration of certain class types and they are located in Magento's root `var/` directory.Here are the subdirectories:
@@ -39,6 +31,16 @@ Magento dose a lot of caching and autogeneration of certain class types and they
 * `page_cache/`
 
 > During development, we will most likely need to periodically clear these so that our changes can kick in.
+
+
+
+## Component root directory location
+* `<magento install directory>/app`
+	* For modules: `app/code`
+	* For store front themes: `app/design/frontend`
+	* For Admin themes: `app/design/adminhtml`
+	* For language packages: `app/i18n`
+* `<magento install directory>/vendor`
 
 
 

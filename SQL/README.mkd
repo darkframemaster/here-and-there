@@ -1,3 +1,54 @@
 # SQL
 
-## 
+## opetators
+* `=`
+* `!=`
+* `>`
+* `<`
+* `>=`
+* `<=`
+
+## commands statement 
+A `statement` is text that the database recognizes as a valid command.Statements always end in a semi-colon `;`.
+### CREATE TABLE
+```
+CREATE TABLE celebs (id INTEGER, name TEXT, age INTEGER);
+```
+### INSERT A ROW
+```
+INSERT INTO celebs (id, name, age) VALUES (1, 'darkframexue', 22);
+```
+### UPDATE DATA
+```
+UPDATE celebs 
+SET age = 22
+WHERE id = 1;
+```
+### ALTER TABLE
+```
+--Add a new column to the table
+ALTER TABLE celebs ADD COLUMN twitter_handle TEXT;
+```
+### DELETE ROWS
+```
+DELETE FROM celebs WHERE twitter_handle IS NULL;
+```
+
+## QUERY RESULT
+```
+SELECT * FROM celebs;
+```
+### DISTINCT
+```
+-- DISTINCT is used to return unique values in the result set.
+SELECT DISTINCT genre FROM movies;
+### WHERE
+```
+-- WHERE to filter the result
+SELECT * FROM movies WHERE rating>8;
+```
+### LIKE
+```
+SELECT * FROM movies WHERE name LIKE 'Se_en';
+SELECT * FROM movies WHERE name LIKE '%man%';
+```
