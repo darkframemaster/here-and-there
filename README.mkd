@@ -1,9 +1,10 @@
-##About this repo
-I put Something piecemeal in this repo for any languages and any kindof works.
+# About this repo
+I put Something piecemeal in this repo for many languages and many kindof works.
 
-##About the directories
+## About the directories
+The language-related directories are names by the language,for example:
 ```
-here-and-there/		<--root directory
+./
 |
 +- c/				<--things about c.
 |
@@ -15,14 +16,27 @@ here-and-there/		<--root directory
 |
 +- php/				<--things about php.
 |
-+- web_roadmap/			<--things about web development.
+...
+```
+
+By default each language-related directory contains a README.mkd file talk about the installation, some even contains syntax about that language.
+
+There are also other directories talk about other things.
+```
+.\
 |
-+- code/			<--...
++- web_roadmap/			<--things about web development.
 |
 +- reading_note/		<--Note of books.
 |
 +- just-for-fun/ 		<--things code for fun.
+|
++- university/			<--some learning-documents about university
+|
+...
 ```
 
+## About the environment
+All the code is able to run in `Ubuntu 16.04 LTS` and is only tested under this environment.
 
-
+There are some shell script under the language-related directories for setting the environment,if you need to run those script please check the contents before.

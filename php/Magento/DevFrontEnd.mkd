@@ -13,6 +13,57 @@ A theme is a component of Magento application which provides a consistent look a
 Out-of-the-box Magento application provides two design themes: Luma, as a demonstration theme, and Blank as a basis for custom theme creation.Strongly recommend not to change the default Luma and Blank theme files.
 
 The theme inheritance concept implemented in the Magento system allows you changing only certain theme files, and inheriting the rest necessary files from a parent theme.
+### Theme file structure
+```
+├── composer.json
+├── etc
+│   └── view.xml
+├── i18n
+│   └── en_US.csv
+├── LICENSE_AFL.txt
+├── LICENSE.txt
+├── media
+│   └── preview.jpg
+├── registration.php
+└── web
+    ├── css
+    │   ├── email.less
+    │   ├── print.less
+    │   ├── source
+    │   │   ├── _actions-toolbar.less
+    │   │   ├── _breadcrumbs.less
+    │   │   ├── _buttons.less
+    │   │   ├── components
+    │   │   │   └── _modals_extend.less
+    │   │   ├── _icons.less
+    │   │   ├── _layout.less
+    │   │   ├── _theme.less
+    │   │   ├── _tooltips.less
+    │   │   ├── _typography.less
+    │   │   └── _variables.less
+    │   ├── _styles.less
+    │   ├── styles-l.less
+    │   └── styles-m.less
+    ├── images
+    │   └── logo.svg
+    └── js
+        ├── navigation-menu.js
+        ├── responsive.js
+        └── theme.js
+```
+
+* **Common directories**
+	* `etc` : Contains configuration files such as `view.xml` file which contains image configurations for all images and thumbnails.
+	* `i18n` : Translation dictionaries,if any.
+	* `media` : Theme preview images(screen capture of your theme) can be put in here.
+	* `web` : Optional directory that contains static files organized into following subdirectories:
+		* `css/source` : Contains a theme's `less` configuration files that invoke mixins for global elements from the Magento UI library,and the `theme.less` file that overrides the default variables values.
+		* `css/source/lib` : Contains view files that override the UI library files stored in `lib/web/css/source/lib`.
+		* `fonts` : The folder to place the different fonts for your theme.
+		* `images` : Static images folder.
+		* `js` : The folder for your JavaScript files.
+
+
 ### static file processing
 Magento use fallback mechanism to search view file.
 

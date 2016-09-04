@@ -33,6 +33,45 @@ Magento identifies itself as a hightly modular platform.What this means is that 
 * `LICENSE_AFL.txt`
 * `README.md`
 
+### Use /etc for your configuration files
+Magento2 looks for configuration information for each module in that module's `etc/` directory.Depending on the needs of your module, you might have the following configuration files at the top level of your module's `etc/` directory(these files are applied globally to your module):
+
+* acl.xml
+* config.xml
+* di.xml
+* module.xml
+* webapi.xml
+
+A Magento2 module also has nested configuration directories in the `etc/` directory for any required administraion html, frontend, API REST, or API SOAP sepcific configuration,and these files will override the settings in global configuration files for the respective functionality only. That is, if you add a `config.xml` file to `etc/frontend`, the settings you make in that file overrides the settings in `etc/config.xml` for storefront functionality only.
+
+* <your module root dir>/etc/adminhtml/
+* <your module root dir>/etc/frontend/
+* <your module root dir>/etc/webapi_rest/
+* <your module root dir>/etc/webapi_soap/
+
+> Configuration files placed in subdirectories (`adminhtml`, `frontend`, `webapi_rest`, `webapi_soap`) apply only to those respective functional areas.
+
+### Tailor your configuration files for what your module does
+The exact set of configuration files required for your module depends on what your new module does.
+
+if you module performs a function in the Admin, you should add any necessary configuration files for those functions to `etc/adminhtml/`, like:
+
+* `<your module root dir>/etc/adminhtml/di.xml`
+* `<your module root dir>/etc/adminhtml/routes.xml`
+
+if you module changes the UI, you should add the needed configuration files to `~/etc/frontend/`. For example:
+
+* <your module root dir>/etc/frontend/.xml
+* <your module root dir>/etc/frontend/page_types.xml 
+
+If the module is a service that may call an API, or does some other work that is not manifested in the UI you should add any needed configuration files in the REST and/or SOAP webapi configuration directories, like this:
+
+* <your module root dir>/etc/webapi_rest/di.xml
+* <your module root dir>/etc/webapi_soap/di.xml
+
+
+
+
 ## Modules and Collections
 `Model`, `resouce`, and `collection` are three types of classes working together to allow us full entity data management, from loading,saving,deleting, and listing entities.The majority of our data access and management will be done via PHP classes called Magento models.**Models** themselves donnot contain any code for communicating with the database.
 
