@@ -71,8 +71,124 @@ If the module is a service that may call an API, or does some other work that is
 
 
 
+## Example
+>The Example code is placed in the `./code/module/EXAMPLE` directory.
 
-## Modules and Collections
+### Register your component
+Magento components, including modules, themes, and language packages, must be registered in the Magento system through the Magento `ComponentRegistrar` class.
+
+Each component must have a file called `registration.php` in its root directory. 
+#### Register modules
+Here is the Format of the contents.where <VendorName> is the name of 
+the company providing the module and <ModuleName> is the name of the 
+module.Do not use “Ui” for your custom module name
+
+```
+ComponentRegistrar::register(
+	ComponentRegistrar::MODULE, 
+	'<VendorName_ModuleName>',
+	__DIR__
+);
+```
+#### Invoke registration.php in composer.json with autoload
+After you create your `registration.php` file and you are creating your component’s composer.json file, invoke your `registration.php` file in the `autoload` section of `composer.json`:
+
+```
+ {
+"name": "Acme-vendor/bar-component",
+"autoload": {
+    "psr-4": { "AcmeVendor\\BarComponent\\": "" },
+    "files": [ "registration.php" ]
+} }
+```
+
+### add configuration files
+* `module.xml` files in `./code/module/etc/` directory.Attributes include:
+	* `name` is the name of your component.[required]
+	* `set_up` is your module's database schema version.[required]
+
+### add the component composer.json file
+`composer.json` provides a component name and also specifies component dependencies.
+
+In addition, the Component Manager looks for a `composer.json` in a component’s root directory and can perform actions on the component and its dependencies.
+
+* If a component has composer.json and the component was installed using Composer (including from packagist, the Magento Marketplace, or other source), the Component Manager can update, uninstall, enable, or disable the component.
+* If the component has composer.json but was not installed using Composer (for example, custom code a developer wrote), Component Manager can still enable or disable the component.
+* We strongly recommend you include composer.json in your component’s root directory whether or not you intend to distribute it to other Magento merchants.
+
+Attributes of a `composer.json` include:
+
+* `name`: The name of your component.
+* `description`: A concise explanation of your component's purpose.
+* `require`: Lists any components your component depends on.
+* `suggest`: Lists soft dependencies. The component can operate without them, but if the components are active, this component might impact their functionality. Suggest does not affect component load order.
+* `type`: Determines what the Magento component type. Choose from `magento2-theme`, `magento2-language`, or `magento2-module`.
+* `version`: Lists the version of the component.
+* `license`: Lists applicable licenses that apply to your component.
+* `autoload`: Instructs composer to load the specified files.
+
+
+
+## Public interface & API
+### Public interface
+A **public interface** is a set of code that third-party developers can call, implement, or build as a plug-in. Magento guarantees that this code will not change in subsequent releases without a major version change.
+
+Public interfaces for a module reside in the Api folder for a module. For example, the public interfaces for the `Customer` module reside in the `vendor/magento/module-customer/Api directory`.
+
+> Third-party developers should use only these interfaces, that is, interfaces with the `@api` annotation.
+
+### What is an API
+An application programming interface (API) is a set of interfaces and their implementations that a module provides to other modules.
+####Api types
+The following items are considered types of APIs:
+
+* Directory structure
+* Configuration files structure
+* Events
+* Client API
+* Provider API(SPI)
+
+
+
+## Service contracts
+A service contract is a set of PHP interfaces that is defined by a module.This contract comprises data interfaces and service interfaces.
+
+The role of the data interface is to preserve data integrity(数据完整性), while the role of the service interface is to hide the business logic details from service consumers.
+### Data interfaces
+**Data interfaces** define various functions,such as validation,entity information, search related functions, and so on.They are defined within the `Api/Data` directory of an data interfaces for an individual module, for example: data interfaces for cms module `vendor/magento/module-cms/Api/Data`.
+
+You must define one interface for each data entity for type hinting purposes. That is, the `getItems()` function in the `CustomerSearchResultsInterface` returns an array of `CustomerInterface` data entities. In `GroupSearchResultsInterface`, the `getItems()` function returns an array of `GroupInterface` data entities. 
+
+### Service interfaces
+**service interfaces** are the ones that include:
+
+* Management interfaces
+* Repository interfaces: Provide access to presistent(持久的) data entities.
+	* `CustomerRepositoryInterface`
+    * `AddressRepositoryInterface`
+    * `GroupRepositoryInterface`
+	* Repository interfaces must provide these functions:
+		* `save(data entity interface)`
+		* `get(id)`
+		* `getlist(search criteria)`
+		* `delete(data entity interface)`
+		* `deleteById(id)`
+* Metadata interfaces: Management interfaces provide management functions that are not related to repositories.
+	* `AccountManagementInterface`
+	* `AddressManagementInterface`
+
+These interfaces are defined directly within the module'a `Api` directory, for example: Service interfaces for cms module `vendor/magento/module-cms/Api`.The **CRUD interface** is located in here.
+
+
+
+## Test
+[Magento Testing Overview](http://devdocs.magento.com/guides/v2.1/test/testing.html)
+
+
+
+## Make Modules and Collections
+> Code of this part is placed in `./code/Foggyline` directory.
+
 `Model`, `resouce`, and `collection` are three types of classes working together to allow us full entity data management, from loading,saving,deleting, and listing entities.The majority of our data access and management will be done via PHP classes called Magento models.**Models** themselves donnot contain any code for communicating with the database.
 
 The database communication part is decoupled into its own PHP class called **resource class**.Each model is then assigned(分配) a resource class.Calling `load`, `save`, or `delete` methods on models get delegated(授权) to resouce classes, as they are the ones to actually read, write and delete from the database.

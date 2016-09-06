@@ -57,17 +57,6 @@ There are several coding standards that Magento abides by,such as the following 
 
 
 
-## Service contracts
-A service contract is a set of PHP interfaces that is defined by a module.This contract comprises data interfaces and service interfaces.
-
-The role of the data interface is to preserve data integrity(数据完整性), while the role of the service interface is to hide the business logic details from service consumers.
-### Data interfaces
-**Data interfaces** define various functions,such as validation,entity information, search related functions, and so on.They are defined within the `Api/Data` directory of an data interfaces for an individual module, for example: data interfaces for cms module `vendor/magento/module-cms/Api/Data`.
-### Service interfaces
-**service interfaces** are the ones that include management, repository, and metadata interfaces.These interfaces are defined directly within the module'a `Api` directory, for example: Service interfaces for cms module `vendor/magento/module-cms/Api`.The **CRUD interface** is located in here.
-
-
-
 ## Code generation
 Code generation generates **non**existent classes. These classes are genereated in Magento's `var/generation` directory. The code is generated for something that is called **Factory,Proxy and Interceptor** classes.
 

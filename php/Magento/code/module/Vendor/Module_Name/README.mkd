@@ -1,0 +1,4 @@
+## introduction
+This directory is a example of a `Module`, and is build in guid with documentation of Magento2.
+
+To build a new module, you can copy this directory for a simple setup of a module and replace the params into those you need.

@@ -1,0 +1,3 @@
+This directory stores files about `service interfaces` of a module.
+
+The role of service interfaces is to hide logic detials from service consumers.A module's CRUD interface is defined here.
