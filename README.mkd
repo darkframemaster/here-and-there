@@ -19,7 +19,7 @@ The language-related directories are names by the language,for example:
 ...
 ```
 
-By default each language-related directory contains a README.mkd file talk about the installation, some even contains syntax about that language.
+By default each language-related directory contains a README.mkd file talk about the installation, some even contains syntax about that language which usually located in `language.mkd` file.
 
 There are also other directories talk about other things.
 ```

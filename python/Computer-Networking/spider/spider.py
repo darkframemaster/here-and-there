@@ -11,7 +11,7 @@ class spider():
 	headers=socket._GLOBAL_DEFAULT_TIMEOUT
 	html=None
 
-	def _init_(self,url,data,user_agent,referer,headers):
+	def __init__(self,url,data,user_agent,referer,headers):
 		self.url=url
 		if(self.URLError()==False):
 			print('urlError!!!')

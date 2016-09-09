@@ -162,9 +162,24 @@ The `shared` property determines the lifestyle of both `argument` and `type` con
 ```
 In this example `Magento\Filesystem` is configured as non-shared, so all clients will retrieve separate instances of `Magento\Filesystem`. Also, every instance of `Magento\Filesystem` will get separate instance of `$adapter`, because it too is non-shared.
 
-### Abstraction-Implementation mappings
+## Abstraction-Implementation mappings
 The abstraction-implementation mappings are used by Magento’s object manager when the constructor signature of a class requests an object by its interface. The object manager uses these mappings to determine what the default implementation is for that class for a particular scope.
 
 The default implementation is secified using the `preference` node: see `./root_di.xml`.
 
 see `./adminhtml/di.xml` for another example.
+
+## Injection types used in Magento
+* Construction Injection
+	* Injection as a parameter of constructor method.
+	* Magento uses constructor injection to provide dependencies through an object’s class **constructor**. 
+* Method Injection
+	* Injection as a parameter of other methods.
+	* When an object specifies a dependency in one of its **methods** instead of its constructors, it is called method injection.
+### Injectable and Newable Objects
+* Injectable:
+	* Objects that can be obtained through dependency injection. Any object that can be instantiated by the object manager, such as **singletons and factories**, fall into this category.
+* Newable:
+	* Objects that can only be obtained by creating a new class instance every time. **Transient objects**, such as those that require external input from the user or database, fall into this category.**Attempts to obtain these objects using dependency injections will return an undefined object.**
+
+
