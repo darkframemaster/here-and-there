@@ -108,56 +108,10 @@ If the module is a service that may call an API, or does some other work that is
 
 
 
-### Instantiating objects with factories
-The most common way to request and work with objects in Magento is using constructor injection.Objects obtained this way(that is, using injectable classes)follow a singleton pattern, whereby the same instance is always returned by the Object Manager whenever a class is requested.
-
-Most development also requires working with object that are individual instances of classes(for example, a model representing a database entity).These are referred to as **non-injectables**.Non-injectables are not obtained directly using constructor injection; instead, instantiate them using **factories**.
-
-### Purpose of factories
-Factories are special objects that have only one purpose: **to create an instance of one non-injectable class or interface.**Unlike other objects, factories are allowed to depend on the object manager.Factories are used to isolate the object manager from business code as the following example shows:
-
-```
-class Magento\Core\Model\Config\BaseFactory
-{
-	protected $_objectManager;
-	
-	public function __construct(Magento\Framework\ObjectManager $objectManager)
-	{
-		$this->_objectManager = $objectManager;
-	}
-
-	public function create($sourceData = null)
-	{
-		return $this->_objectManager->create('Magento\Core\Model\Config\Base', ['sourceData' => $sourceData]);
-	}
-}
-```
-#### Factories are generated classes
-Factories are always named identically to the classes they instantiate, suffixed with Factory. (For example, Magento\Cms\Model\BlockFactory is responsible for objects of the class Magento\Cms\Model\Block.)
-
-An important thing to understand about factories is that they are an automatically generated class type. Factory classes do not need to be explicitly defined. Simply reference a class name with Factory appended in a constructor, and Magento automatically generates the factory class if it does not already exist. (See Code generation for more information.)
-
-Factory classes can be explicitly defined, however, if customization of the typical factory behavior is desired for a specific class. The code in factories provides typeSafety (@return annotation) so IDEs understand the type of returned object for the type.
-#### Factories are injectable
-Factories themselves are injectables, and therefore constructor injection is still key to the process of instantiating objects. Receive a factory class via a constructor:
-
-```
-function __construct (
-    \Magento\Cms\Model\BlockFactory $blockFactory
-) {
-    $this->blockFactory = $blockFactory;
-}
-```
-When an instance of the class is needed, use the factory to instantiate it:
-
-```$block = $this->blockFactory->create();```
-
-The `_create_` method of factories accepts an array, which is passed as the `$data` array to the instantiated object.
-
-Just as interfaces can be specified in constructor injection to obtain the best object implementing that interface (as defined in dependency injection preferences), factories can be used for such interfaces as well. For example, requesting an object of the class `Magento\Customer\Api\Data\CustomerInterfaceFactory` in a constructor results in a factory responsible for creating instances of the appropriate dependency injection preference implementing `Magento\Customer\Api\Data\CustomerInterface`.
-
-
-
+### Factories and Proxies
+* [Factories](http://devdocs.magento.com/guides/v2.1/extension-dev-guide/factories.html)
+* [Proxies](http://devdocs.magento.com/guides/v2.1/extension-dev-guide/proxies.html)
+* [Generated code in magento](http://devdocs.magento.com/guides/v2.1/extension-dev-guide/code-generation.html)
 
 
 ## Test

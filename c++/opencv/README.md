@@ -58,6 +58,8 @@ or cmake(CMakeList.txt):
 
 `target_link_libraries(Hello ${OpenCV_LIBS})`
 
+## Run example
+unpacking `objectDetection.zip` and run the example.
 
 ##enjoy your opencv！
 [help](www.douban.com/note/478450231)
