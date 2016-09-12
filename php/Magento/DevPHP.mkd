@@ -84,10 +84,8 @@ If the module is a service that may call an API, or does some other work that is
 * add the component composer.json file
 
 
-
 ### Data & Service interfaces
 > see `./code/module/Vendor/ModuleName/Api/README.mkd`
-
 
 
 ### Dependency injection
@@ -95,7 +93,6 @@ If the module is a service that may call an API, or does some other work that is
 
 * Configuring types in `di.xml` configuration node.
 * Abstraction-Implementation mappings in file `di.xml`.(Use these mappings to determine what the default implementations is for that class for a particular scope)
-
 
 
 ### Events and observers
@@ -107,11 +104,11 @@ If the module is a service that may call an API, or does some other work that is
 * Subscribing to events
 
 
-
 ### Factories and Proxies
 * [Factories](http://devdocs.magento.com/guides/v2.1/extension-dev-guide/factories.html)
 * [Proxies](http://devdocs.magento.com/guides/v2.1/extension-dev-guide/proxies.html)
 * [Generated code in magento](http://devdocs.magento.com/guides/v2.1/extension-dev-guide/code-generation.html)
+
 
 
 ## Test

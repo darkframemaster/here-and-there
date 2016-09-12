@@ -1,13 +1,13 @@
-## introduction
+# introduction
 This directory is a example of a `Module`, and is build in guid with documentation of Magento2.
 
 To build a new module, you can copy this directory for a simple setup of a module and replace the params into those you need.
 
-### Register your component
+## Register your component
 Magento components, including modules, themes, and language packages, must be registered in the Magento system through the Magento `ComponentRegistrar` class.
 
 Each component must have a file called `registration.php` in its root directory. 
-#### Register modules
+### Register modules
 Here is the Format of the contents.where <VendorName> is the name of 
 the company providing the module and <ModuleName> is the name of the 
 module.Do not use “Ui” for your custom module name
@@ -19,7 +19,7 @@ ComponentRegistrar::register(
 	__DIR__
 );
 ```
-#### Invoke registration.php in composer.json with autoload
+### Invoke registration.php in composer.json with autoload
 After you create your `registration.php` file and you are creating your component’s composer.json file, invoke your `registration.php` file in the `autoload` section of `composer.json`:
 
 ```
@@ -31,12 +31,12 @@ After you create your `registration.php` file and you are creating your componen
 } }
 ```
 
-### add configuration files
+## add configuration files
 * `module.xml` files in `./code/module/etc/` directory.Attributes include:
 	* `name` is the name of your component.[required]
 	* `set_up` is your module's database schema version.[required]
 
-### add the component composer.json file
+## add the component composer.json file
 `composer.json` provides a component name and also specifies component dependencies.
 
 In addition, the Component Manager looks for a `composer.json` in a component’s root directory and can perform actions on the component and its dependencies.

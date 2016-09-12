@@ -1,4 +1,4 @@
-## Frontend Developer Guide
+# Frontend Developer Guide
 ### Conventional notations for paths to modules and themes
 * `<theme_dir>`:
     * `app/design/frontend/Magento/<theme>`
@@ -7,13 +7,13 @@
     * `app/code/Magento/<Module>`
     * `vendor/magento/module-<module>-<name>`
 
-## Themes
+# Themes
 A theme is a component of Magento application which provides a consistent look and feel (visual design) for entire application area (for example, storefront or Magento admin) using a combination of custom templates, layouts, styles or images.
 
 Out-of-the-box Magento application provides two design themes: Luma, as a demonstration theme, and Blank as a basis for custom theme creation.Strongly recommend not to change the default Luma and Blank theme files.
 
 The theme inheritance concept implemented in the Magento system allows you changing only certain theme files, and inheriting the rest necessary files from a parent theme.
-### Theme file structure
+## Theme file structure
 ```
 ├── composer.json
 ├── etc
@@ -64,98 +64,69 @@ The theme inheritance concept implemented in the Magento system allows you chang
 		* `js` : The folder for your JavaScript files.
 
 
+
+## Theme files
+* static view files
+* Dynamic view files
+
+### static view files
+A set of theme files that are returned by the server to a browser as is, without any processing, are called the static files of a theme.
+
+Static files can be located in a theme directory as follows:
+
+```
+<theme_dir>/
+├── media/
+├── web
+│	├── css/ (except the "source" sub-directory)
+│	├── fonts/
+│	├── images/
+│	├── js/
+```
+
+The key difference between static files and other theme files is that static files appear on a web page **as references** to the files, while other theme files take part in the page generation, but are not explicitly referenced on a web page as files.
+
+Static view files that can be accessed by a direct link from the store front, are distinguished as public theme files.
+
+> To be actually accessible for browsers public static files are published to the `/pub/static/frontend/<Vendor>/<theme>/<language>/css/` directory.
+
 ### static file processing
 Magento use fallback mechanism to search view file.
 
-### Add a theme: walkthrough
-#### Create a storefront theme
-1. Set Magento mode to developer
-2. Create a theme directory
-    * `cd <path to magento>/app/design/frontend`
-    * `mkdir {Ventor}`
-    * `mkdir {Ventor}/{theme_name}`
-#### Declare your theme
-1. Add or copy from an existing `theme.xml` to your theme directory `app/design/frontend/<Vendor>/<theme>`
-2. Configure it using the following example:
-3. if you change the title or parent theme of the `theme.xml` file after a theme already registered you need to reload to make it work.
+### Dynamic view files
+View files that are **processed or executed** by the server in order to provide result to the client. These are: `.less` files, templates, and layouts.
+
+Dynamic view files are located in a theme directory as follows:
 
 ```
-<theme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/theme.xsd">
-<title>New theme</title> <!-- your theme's name -->
-<parent>Magento/blank</parent> <!-- the parent theme, in case your theme inherits from an existing theme -->
-<media>
-<preview_image>media/preview.jpg</preview_image> <!-- the path to your theme's preview image -->
-</media>
-</theme>
-```
-
-#### Add registration.php
-1. Add a `registration.php` file in `<path to magento>/app/design/frontend/Ventor/theme_name/`
-2. Edit file as follow:
-
-```
-<?php
-/**
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
-\Magento\Framework\Component\ComponentRegistrar::register(
-    \Magento\Framework\Component\ComponentRegistrar::THEME,
-    'frontend/<Vendor>/<theme>',
-    __DIR__
-);
-?>
-```
-#### Configure images
-> Product image sizes and other properties used on the storefront are configured in a view.xml configuration file. It is required for a theme, but is optional if exists in the parent theme.
-
-#### Create directores for static files
-> Your theme will likely contain several types of static files: styles, fonts, JavaScript and images. Each type should be stored in a separate sub-directory of web in your theme folder:
-
-```
-app/design/<area>/<Vendor>/<theme>/
+<theme_dir>/
+├── Magento_<module>/ 
+│	├── web/
+│	│	├── css/
+│	│	│	├── source/
+│	├── layout/
+│	│	├── override/
+│	├── templates/
 ├── web/
-│ ├── css/
-│ │ ├── source/ 
-│ ├── fonts/
-│ ├── images/
-│ ├── js/
-```
-
-> During theme development, when you change any files stored here, you need to clear pub/static and var/view_preprocessed directories, and then reload the pages. Otherwise the old versions of files are displayed on the storefront.
-
-your theme directory structure now
+│	├── css/
+│	│	├── source/
 
 ```
-app/design/frontend/<Vendor>/
-├── <theme>/
-│   ├── etc/
-│   │   ├── view.xml
-│   ├── web/
-│   │   ├── images
-│   │   │   ├── logo.svg
-│   ├── registration.php
-│   ├── theme.xml
-│   ├── *composer.json
-```
 
-### Theme logo
-> In the Magento application, the default format and name of a logo image is `logo.svg`. When you put a logo.svg image in the conventional location, which is `<theme_dir>/web/images` directory, it is automatically recognized as theme logo. It is displayed in your store page header once the theme is applied.
 
-* To declare a theme logo, add an extending `<theme_dir>/Magento_Theme/layout/default.xml` layout.
-* Edit as follow:
 
-```
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <referenceBlock name="logo">
-            <arguments>
-                <argument name="logo_file" xsi:type="string">images/my_logo.png</argument>
-                <argument name="logo_img_width" xsi:type="number">300</argument> 
-                <argument name="logo_img_height" xsi:type="number">300</argument>
-            </arguments>
-        </referenceBlock>
-    </body>
-</page>
-```
 
+
+# Example
+> see `./code/theme/Vendor`
+
+## Add a theme: walkthrough
+### basic setup
+> see `./code/theme/Vendor/README.mkd`
+
+* Declare your theme with `theme.xml`.
+* Add `registration.php` and `composer.json`.
+* Config images.
+* Create directores for static files.
+* Registration.
+###
