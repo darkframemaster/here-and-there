@@ -1,3 +1,7 @@
+# Copyright @ 2016 darkframexue
+# date: 2016/9/13
+# version: 0.0.1
+
 echo "set up PHP with apache and MySQL..."
 
 # install basic options
@@ -8,11 +12,12 @@ sudo apt-get install apache2.0 libapache2-mod-php7.0
 sudo apt-get mysql-server php7.0-mysql
 
 # check the installations
-echo "check the installations"
+clear
+echo "check the installations:"
 apache2 -v
 php -v
 mysql -V
-sleep 3
+sleep 5
 
 # install extensions of php
 # These extensions is required by Magento2

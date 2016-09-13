@@ -1,8 +1,13 @@
 # Frontend Developer Guide
-### Conventional notations for paths to modules and themes
+This is the guide for Magento2 frontend development.Contents list:
+
+* Layouts development: `devLayout.mkd`
+
+## Conventional notations for paths to modules and themes
 * `<theme_dir>`:
     * `app/design/frontend/Magento/<theme>`
     * `vendor/magento/theme-fronted-<theme>`
+    * special for admin theme: `app/design/adminhtml/<Vendor>/<admin_theme>`
 * `<module_dir>`:
     * `app/code/Magento/<Module>`
     * `vendor/magento/module-<module>-<name>`
@@ -113,7 +118,76 @@ Dynamic view files are located in a theme directory as follows:
 
 ```
 
+##Theme inheritance
+Theme inheritance enables you to easily extend themes and minimize the maintenance efforts.*The level of theme inheritance is not limited*.
 
+Theme inheritance is based on the fallback mechanism.The fallback order is slightly different for static assets(CSS, JavaScript, fonts and images) and other theme files,and provides an overview of how to override ancestor
+themes and module designs.
+
+* override static assets(styles,JS,images,fonts,`.less(This is special)`)
+	* if moudle context is not defined for a file:
+		* current theme static files:
+			* for a specific locale: `<theme_dir>/web/i18n/<locale>`
+			* `<theme_dir>/web/`
+		* Ancestor's theme static files:
+			* `<parent_theme_dir>/web/i18n/<locale>`
+			* `<parent_theme_dir>/web/i18n/<locale>`
+		* Library static view files:
+			* `lib/web/`
+	* if module context is defined for a file:
+		* Current theme static files:
+			* Current theme and current locale module static files: `<theme_dir>/web/i18n/<locale>/<Namespace>_<Module>`
+			* Current locale module static files: `<theme_dir>/<Namespace>_<Module>/web/`
+		* Ancestor themes module static files:
+			* `<parent_theme_dir>/web/i18n/<locale>/<Namespace>_<Module>`
+			* `<parent_theme_dir>/<Namespace>_<Module>/web/`
+		* Module static view files for the `frontend` area:
+			* `<module_dir>/view/frontend/web/`
+		* Module static view files for the `base` area:
+			* `<module_dir>/view/base/web`
+* override templates
+	* Current theme templates: `<theme_dir>/<Namespace>_<Module>/templates`
+	* Ancestors themes templates: `<parent_theme_dir>/<Namespace>_<Module>/templates`
+	* Module templates: `<module_dir>/view/frontend/templates`
+	* `<templates_path>`
+* extend layouts
+	* Current theme layouts: `<theme_dir>/<Vendor>_<Module>/layout/`
+	* Ancestor theme layouts: `<parent_theme_dir>/<Vendor>_<Module>/layout/`
+	* Module layouts for the `frontend` area: `<module_dir>/view/frontend/layout/`
+	* Module layouts for the `base` area: `<module_dir>/view/base/layout`
+* override layouts
+	* Create a layout file with same name in the `<theme_dir>/<Vendor>_<Module>/layout/override/theme/<Vendor>/<ancestor_theme>` directory.
+	* To override: `<theme_dir>/<Vendor>_<Module>/layout/override/base` directory.
+
+[more details](http://devdocs.magento.com/guides/v2.1/frontend-dev-guide/themes/theme-inherit.html)
+
+### locate templates & layouts & styles
+To locate the template that is responsible for a specific part of the storefront or Admin, you can use Magento built_in template hints.
+
+[more details](http://devdocs.magento.com/guides/v2.1/frontend-dev-guide/themes/debug-theme.html)
+
+
+
+## Add icon & vedio &
+### icon
+* Add icon using admin page: `content` -> `design` -> `configure` -> `edit`.
+* Add custom favicons manually:
+    1. Add your icons in the `<your_theme_dir>/Magento_Theme/web` directory.
+    2. In the `<your_theme_dir>/Magento_Theme/layout/default_head_blocks.xml` layout file specify the paths to the icons and their sizes.
+
+[more details](http://devdocs.magento.com/guides/v2.1/frontend-dev-guide/themes/favicon.html)
+### vedio
+* Add in admin when creating or editing a product.
+* Certain product video options can be set in the `config.xml` configuration file.These settins are not theme-specific.
+
+[more details](http://devdocs.magento.com/guides/v2.1/frontend-dev-guide/themes/product-video.html)
+###
+
+
+
+## Apply theme
+* [Apply and configure a storefront theme](http://devdocs.magento.com/guides/v2.1/frontend-dev-guide/themes/theme-apply.html)
+* [Apply an Admin theme](http://devdocs.magento.com/guides/v2.1/frontend-dev-guide/themes/admin_theme_apply.html)
 
 
 
@@ -125,8 +199,8 @@ Dynamic view files are located in a theme directory as follows:
 > see `./code/theme/Vendor/README.mkd`
 
 * Declare your theme with `theme.xml`.
+	* set a parent theme
 * Add `registration.php` and `composer.json`.
 * Config images.
 * Create directores for static files.
 * Registration.
-###

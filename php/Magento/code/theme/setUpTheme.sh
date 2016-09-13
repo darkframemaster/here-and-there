@@ -1,12 +1,10 @@
-# Copyright: @darkframexue 2016/9/12
+# Copyright @ 2016 darkframexue 
+# date: 2016/9/12
+# version: 0.0.1
 
 # Run this file under your theme directory,for example,if you want to 
 # create a new theme `<Vendor>/<theme_name>`, then you should run this 
 # file under directory:`<Your magento path>/app/design/webfront/Vendor`.
-
-# __author__=darkframexue
-# date=2016/9/12
-# version=0.0.0
 
 # Params: None
 # Output: basic file-structure for a Magento  theme

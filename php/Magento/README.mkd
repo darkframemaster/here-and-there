@@ -1,9 +1,9 @@
 # Guide
 * install guide : `install.mkd`
 * command line guide : `commandLine.mkd`
-* `Module` development : `DevPHP.mkd`
-* `Theme` development : `DevFrontEnd.mkd`
-* code : `./code/`
+* `Module` development : `devPHP.mkd`
+* `Theme` development : `./frontend/`
+* Sample code : `./code/`
 
 # About Magento2
 
