@@ -36,8 +36,12 @@ sleep 2
 sudo pip3 install pymongo
 
 
-# Computer vision
-echo "Install computer vision extensions..."
+# Machine learning & Computer vision
+echo "Install machine learning and computer vision extensions..."
 sudo pip3 install numpy \
 scipy \
-matplotlib
+matplotlib \
+pandas \
+matplotlib \
+jypyter \
+scikit-learn
