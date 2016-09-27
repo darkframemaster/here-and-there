@@ -7,9 +7,11 @@ echo "set up PHP with apache and MySQL..."
 # install basic options
 echo "install php apache and mysql..."
 sudo apt-get update
-sudo apt-get install php7.0
+# if you are using ubuntu 15.* or older enable the next line of code.  
+#sudo add-apt-repository ppa:ondrej/php
+sudo apt-get install php7.0 php7.0-mysql
 sudo apt-get install apache2.0 libapache2-mod-php7.0
-sudo apt-get mysql-server php7.0-mysql
+sudo apt-get mysql-server
 
 # check the installations
 clear
