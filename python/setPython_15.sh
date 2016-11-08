@@ -2,8 +2,9 @@
 # date: 2016/9/13 
 # version: 0.0.0
 
-# Install Flask
 echo "set up python extensions..."
+
+# Install Flask
 echo "set up flask:"
 
 sudo apt-get install python3-pip
