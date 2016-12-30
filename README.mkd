@@ -1,8 +1,8 @@
 # About this repo
-I put Something piecemeal in this repo for many languages and many kindof works.
+All kinds of piecemeals in this repo.
 
 ## About the directories
-The language-related directories are names by the language,for example:
+The language-related directories are named by the language,for example:
 ```
 ./
 |
@@ -31,7 +31,7 @@ There are also other directories talk about other things.
 |
 +- just-for-fun/ 		<--things code for fun.
 |
-+- university/			<--some learning-documents about university
++- university/			<--some learning-documents of university
 |
 ...
 ```
