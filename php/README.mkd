@@ -8,7 +8,9 @@
     * `sudo apt instll apache2.0 php7.0 libapache2-mod-php7.0 php7.0-mysql`
 3. Test
     * To make less problem shutdown other server like nginx if you are running one.
-    * To run apache2 server:`sudo /etc/init.d/apache2 restart`.
+    * To run apache2 server:
+		* `sudo /etc/init.d/apache2 restart`
+		* `sudo service apache2 restart`
     * write a php script. (eg:`/var/www/html/init/test.php`)
     	* the path `/var/www/html/` is the default website for the apache2.
     * Check the website `localhost/init/test.php`
