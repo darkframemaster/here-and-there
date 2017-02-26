@@ -31,6 +31,13 @@ Here we use the default access-protocol that svn provide to config the server.
 * To display the status of working copy files and directories: `svn status [DIR]` or `svn status`
 * To get help of svn command: `svn help [command]` or `svn [command] --help`
 
+## log
+```bash
+#check diff between current version and last commit version
+svn log -rHEAD --diff
+```
+
 ## Common Questions
 * Are there something like git-branches.
 * What is the different between `svn diff` and `svn status`
+
