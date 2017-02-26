@@ -1,4 +1,6 @@
 #Dynamic Web Desgin
+To build a dynamic with PHP. Coding language is not a big deal you can choose python ruby or any other languages just the way you like.
+
 > If you want to run these code please check `hereandthere/php` part for details,suggest making a softlink to test code.
 
 ##Libs

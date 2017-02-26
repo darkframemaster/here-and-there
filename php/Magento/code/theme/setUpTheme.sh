@@ -21,5 +21,3 @@ touch composer.json registration.php theme.xml
 mkdir etc/ i18n/ media/ web/
 
 touch etc/view.xml
-
-
