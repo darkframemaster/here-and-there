@@ -8,7 +8,7 @@ int main(){
 	int int_one = 1, int_two;
 	double double_one = 2.0, double_two;
 	string string_one = "my name is ", string_two;
-	
+
 	cout << "input a int, a double and a string" << endl;
 	cin >> int_two >> double_two >> string_two;
 	cout << "[+] first cout:" << endl;

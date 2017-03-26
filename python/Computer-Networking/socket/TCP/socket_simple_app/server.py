@@ -21,7 +21,7 @@ index_content += file.read()
 file.close()
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.bind((HOST, PORT))
+sock.bind(('', PORT))
 sock.listen(100)
 
 while True:
