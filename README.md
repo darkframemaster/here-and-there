@@ -26,8 +26,12 @@ Math notes for machine learning stay in the separate `ml-math-notes` project and
 
 ## 计算机网络 / Networking
 
-* **[networking/computer-networking.md](networking/computer-networking.md)** — 概述、应用层（HTTP、FTP、邮件、DNS、P2P）、运输层、网络层（IP 编址与 NAT）、链路层。HTTP 没有单独成篇。
-* **[python/computer-networking](python/computer-networking/README.md)** — 同一主题下的 Python socket 与爬虫练习。Textbook outline and the Python labs are split so the notes are not buried inside `python/`.
+来自 [dfx-note](https://github.com/darkframemaster/dfx-note)。原先的 `ComputerNetwoking.md` 已改名为 `computer-networking.md`；`HTTP.md` 并进应用层，没有另留一篇。
+
+Imported from dfx-note. `ComputerNetwoking.md` is now `computer-networking.md`. `HTTP.md` is folded into the application-layer section.
+
+* **[compute-networking/computer-networking.md](compute-networking/computer-networking.md)** — 分层、应用层（含 HTTP 报文）、运输层、网络层（IP、NAT、ARP）、链路层。整理自课件和《TCP/IP 详解：协议》。
+* **[python/computer-networking](python/computer-networking/README.md)** — 同一主题下的 Python socket 与爬虫练习。Textbook outline and the Python labs stay in separate folders.
 
 ## 数据 / Data
 
@@ -53,10 +57,10 @@ Math notes for machine learning stay in the separate `ml-math-notes` project and
 ## 机器学习 / Machine learning
 
 * **[tensorflow](tensorflow/README.mkd)** — 很早的安装笔记，以及 [basic](tensorflow/basic/variable.py) 里的 variable / session / feed 示例。
-* 没有单独的 `sklearn/` 目录。`python/setPython.sh` 里有一行 `scikit-learn` 安装，笔记本身不在这里。
-* `ml-math-notes` 保持独立，不要合并进来。
+* **[sklearn/intro.ipynb](sklearn/intro.ipynb)** — 来自 [notes](https://github.com/darkframemaster/notes)。加载 iris（150×4）和 digits，并画出最后一张数字图。标题「监督学习：从高维观察预测输出变量」下面的代码单元是空的，没有补写。
+* `ml-math-notes` 保持独立，不要合并进来。和 TensorFlow 笔记内容不重叠，所以 sklearn 单独放。
 
-There is no `sklearn/` tree. scikit-learn appears only as an install line in `python/setPython.sh`. Do not merge `ml-math-notes` into this repo.
+`sklearn/intro.ipynb` loads iris and digits, then stops. The supervised-learning cell is empty and was left empty. Do not merge `ml-math-notes` into this repo.
 
 ## 课程、阅读、杂项 / Courses, reading, misc
 
