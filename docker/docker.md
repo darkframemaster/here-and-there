@@ -95,7 +95,7 @@ $docker port mysite
 443/tcp -> 0.0.0.0:32769
 80/tcp -> 0.0.0.0:32770
 
-$echo "docker is greate" > docker.html
+$echo "docker is great" > docker.html
 # visit localhost:32770 to see what is happen
 ```
 #### run ubuntu

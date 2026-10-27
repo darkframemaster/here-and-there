@@ -1,3 +1,3 @@
 #Ruby
 ## 1. install ruby in ubuntu.
-> check `hereandthere/ruby/rails/readme.mkd` for details.
+> check [rails/readme.mkd](rails/readme.mkd) for details. The generated `rails new blog` tree was a broken gitlink and is not stored in this repo.

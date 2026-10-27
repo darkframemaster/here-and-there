@@ -59,7 +59,9 @@ or cmake(CMakeList.txt):
 `target_link_libraries(Hello ${OpenCV_LIBS})`
 
 ## Run example
-unpacking `objectDetection.zip` and run the example.
+人脸检测示例在 [object-detection](object-detection/README.md)。原来的 `objectDetection.zip` 已拆成源码；级联 XML 用本机 OpenCV 自带的文件。
+
+Face-detection sources live in [object-detection](object-detection/README.md). The old zip was unpacked to sources only; use the Haar cascades from your OpenCV install.
 
 ##enjoy your opencv！
-[help](www.douban.com/note/478450231)
+[help](https://www.douban.com/note/478450231)

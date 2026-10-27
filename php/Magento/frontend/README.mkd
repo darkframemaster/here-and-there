@@ -192,11 +192,11 @@ To locate the template that is responsible for a specific part of the storefront
 
 
 # Example
-> see `./code/theme/Vendor`
+> see `../code/theme/Vendor/theme`
 
 ## Add a theme: walkthrough
 ### basic setup
-> see `./code/theme/Vendor/README.mkd`
+> see `../code/theme/Vendor/theme/README.mkd`
 
 * Declare your theme with `theme.xml`.
 	* set a parent theme

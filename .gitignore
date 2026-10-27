@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# editors
+*~
+*.swp
+*.swo
+*.swn
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# native build products
+*.o
+*.obj
+*.out
+*.exe
+*.dll
+*.so
+*.dylib

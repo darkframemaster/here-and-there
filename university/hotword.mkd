@@ -39,5 +39,5 @@ DevOps就是开发(Development)和运维(Operations)这两个领域的合并。D
 * 持续改进，不要停止创新和学习
 
 ##参考文献
-[云](www.baidu.com)
-[DevOps](www.infoq.com/cn/articles/devops-in-my-view/)
+[云](https://www.baidu.com)
+[DevOps](https://www.infoq.com/cn/articles/devops-in-my-view/)

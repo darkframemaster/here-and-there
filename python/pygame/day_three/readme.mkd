@@ -1,6 +1,6 @@
 **learn more about pygame.draw:**
 
-[pygame.draw](pygame.org.docs)
+[pygame.draw](https://www.pygame.org/docs/)
 
 **To run Pie.py:**
 

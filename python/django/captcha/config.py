@@ -6,7 +6,8 @@ import os
 BASE_PATH = os.path.abspath(os.path.dirname(__file__)) + '/static'
 FONT_PATH = BASE_PATH + '/font/'
 PIC_PATH  = BASE_PATH + '/pic/'
-FONT_FILE = 'Consolas.ttf'
+# Consolas.ttf was removed (proprietary Microsoft font). Linux Libertine is OFL and already in font/.
+FONT_FILE = 'LinLibertine_Re-4.4.1.ttf'
 IMG_TYPES = ['png']
 SAVE_AS   = "PNG"
 
