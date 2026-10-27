@@ -19,7 +19,7 @@ Draw something with pygame.
 The file read and write in pygame.With a simple sample `Trivia.py`
 
 ###day_five:
-Get event from mouse and key borad.With a simple sample `speed.py`
+Get event from mouse and key borad. Samples: `speed.py`, `mouse.py`, `BombCatcher.py` (filename typo `BomnCatcher.py` corrected).
 
 ###day_six:
 How to draw a clock using pygame.With a simple sample `Analog_Clock.py`

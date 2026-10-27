@@ -11,7 +11,7 @@ sudo apt-get update
 #sudo add-apt-repository ppa:ondrej/php
 sudo apt-get install php7.0 php7.0-mysql
 sudo apt-get install apache2.0 libapache2-mod-php7.0
-sudo apt-get mysql-server
+sudo apt-get install mysql-server
 
 # check the installations
 clear

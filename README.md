@@ -1,85 +1,85 @@
 # here-and-there
 
-这里是统一的学习笔记仓库（here-and-there / h-a-t）。原来散落在 [dfx-note](https://github.com/darkframemaster/dfx-note) 和 [notes](https://github.com/darkframemaster/notes) 里的笔记已按原文件并入本仓库。已有的主题目录仍留在仓库根目录，内容未改。
+Hao Xue（[darkframemaster](https://github.com/darkframemaster)）的个人学习笔记。按主题分目录，从这里进。
 
-This repository is the unified study-notes hub (here-and-there / h-a-t). Notes that lived in [dfx-note](https://github.com/darkframemaster/dfx-note) and [notes](https://github.com/darkframemaster/notes) are imported here as the original files. Existing topic directories stay at the repository root and are unchanged.
+Personal study notes (h-a-t). Topics are folders; this page is the index.
 
-更早的简短说明仍在 [README.mkd](README.mkd)：各语言目录以语言命名，默认含安装说明（`README.mkd`），语法笔记常在 `language.mkd`；代码在 Ubuntu 16.04 LTS 下编写并测试；语言目录里的环境脚本请先阅读再运行。
+笔记是随手记的，不是教程。不少安装脚本写于 Ubuntu 16.04，包名已经过时，**运行前先打开看一遍**。
 
-The earlier short note remains in [README.mkd](README.mkd): language directories are named after the language and usually include install notes (`README.mkd`), with syntax often in `language.mkd`. The code was written and tested on Ubuntu 16.04 LTS. Read any environment shell scripts in those directories before running them.
+These are working notes, not a tutorial. Several install scripts target Ubuntu 16.04 and are stale — read them before you run them.
 
-## 已有主题 / Existing topics
+机器学习数学在独立项目 `ml-math-notes`，不放进本仓库。
 
-只列仓库根目录下原有的主题文件夹。
+Math notes for machine learning stay in the separate `ml-math-notes` project and are not vendored here.
 
-Top-level topic folders that were already in this repository:
+## 语言 / Languages
 
-- [bash](bash/)
-- [c](c/)
-- [c++](c++/)
-- [docker](docker/)
-- [etcd](etcd/)
-- [git](git/)
-- [go](go/)
-- [html&css](html%26css/)
-- [js](js/)
-- [just-for-fun](just-for-fun/)
-- [linux](linux/)
-- [mongo](mongo/)
-- [nginx](nginx/)
-- [php](php/)
-- [python](python/)
-- [reading_note](reading_note/)
-- [redis](redis/)
-- [ruby](ruby/)
-- [scala](scala/)
-- [SQL](SQL/)
-- [svn](svn/)
-- [tensorflow](tensorflow/)
-- [tools](tools/)
-- [university](university/)
-- [web_roadmap](web_roadmap/)
+* **[bash](bash/README.mkd)** — 循环、算术、echo 等小脚本。Tiny shell scripts.
+* **[c](c/)** — `helloworld.c`，[basic-knowledge](c/basic-knowledge/1.gcc和编译/gcc.mkd)（GCC 阶段、glibc），[os/little_or_big.c](c/os/little_or_big.c)（字节序），[string](c/string/sub_str.c)。
+* **[c++](c++/)** — `helloworld.cpp`，[basic](c++/basic/cin_cout.cpp)，[CCF 题](c++/CCF-C++/README.md)，[OpenCV](c++/opencv/README.md)（第一章图像练习与 [人脸检测源码](c++/opencv/object-detection/README.md)）。
+* **[go](go/README.mkd)** — 安装与 [gotour/basic](go/gotour/basic/start.go)。入口笔记的标题曾经误写成 Ruby，已改正。
+* **[js](js/README.mkd)** — JavaScript 语法笔记。
+* **[php](php/README.mkd)** — 语言笔记、[Magento 2](php/Magento/README.mkd)、[Pagekit](php/pagekit/README.mkd)。
+* **[python](python/README.mkd)** — 语言、Django、pygame、多进程，以及 socket / 爬虫练习。PyLucene 安装笔记也在这里。
+* **[ruby](ruby/README.mkd)** — 语法小例子与 [Rails 博客笔记](ruby/rails/readme.mkd)。
+* **[scala](scala/README.mkd)** — Ubuntu 安装与 `helloworld.scala`。
 
-其中 [web_roadmap](web_roadmap/) 是 Web 开发相关，[reading_note](reading_note/) 是读书笔记，[just-for-fun](just-for-fun/) 是随手写的代码，[university](university/) 是大学课程材料。
+## 计算机网络 / Networking
 
-Among these, [web_roadmap](web_roadmap/) is about web development, [reading_note](reading_note/) holds book notes, [just-for-fun](just-for-fun/) is code written for fun, and [university](university/) holds university course materials.
+来自 [dfx-note](https://github.com/darkframemaster/dfx-note)。原先的 `ComputerNetwoking.md` 已改名为 `computer-networking.md`；`HTTP.md` 并进应用层，没有另留一篇。
 
-## compute-networking
+Imported from dfx-note. `ComputerNetwoking.md` is now `computer-networking.md`. `HTTP.md` is folded into the application-layer section.
 
-来源：[dfx-note](https://github.com/darkframemaster/dfx-note) 的 `master` 分支，`compute-networking/` 原样放到仓库根目录。文件名保持原样（含 `ComputerNetwoking.md` 的拼写）。
+* **[compute-networking/computer-networking.md](compute-networking/computer-networking.md)** — 分层、应用层（含 HTTP 报文）、运输层、网络层（IP、NAT、ARP）、链路层。整理自课件和《TCP/IP 详解：协议》。
+* **[python/computer-networking](python/computer-networking/README.md)** — 同一主题下的 Python socket 与爬虫练习。Textbook outline and the Python labs stay in separate folders.
 
-Imported from [dfx-note](https://github.com/darkframemaster/dfx-note) `master`. `compute-networking/` is copied to the repository root. Original filenames are kept, including the spelling of `ComputerNetwoking.md`.
+## 数据 / Data
 
-- [ComputerNetwoking.md](compute-networking/ComputerNetwoking.md) — 计算机网络笔记（考试、面试，以及后来遇到的网络问题；整理自课件和《TCP/IP 详解：协议》）
-- [HTTP.md](compute-networking/HTTP.md) — HTTP 链接与报文格式
+* **[SQL](SQL/README.mkd)** — SQL 语句备忘，以及 [PostgreSQL](SQL/postgreSQL/README.mkd)（索引、锁、过滤、性能、[FQA](SQL/postgreSQL/FQA.md)）。
+* **[mongo](mongo/mongo.md)** — [操作](mongo/operation.md)、[索引](mongo/Indexes.md)、[explain](mongo/Explain.md)、[副本集](mongo/replica_set.md)、[主从](mongo/master-slave.md)、[分片](mongo/shard.md)、[FQA](mongo/FQA.md)、[问题清单](mongo/Question.md)。
+* **[redis](redis/README.mkd)** — Redis 3.2 源码安装笔记。
 
-- [ComputerNetwoking.md](compute-networking/ComputerNetwoking.md) — computer-networking notes (exams, interviews, and later day-to-day network questions; drawn from course notes and *TCP/IP Illustrated*)
-- [HTTP.md](compute-networking/HTTP.md) — HTTP connections and message format
+## 系统与工具 / Systems and tools
 
-## sklearn
+* **[docker](docker/docker.md)** — 安装与常用命令。`Dockerfile` 在同目录。
+* **[etcd](etcd/README.md)** — 是什么、Docker / 直接安装、本地集群脚本。
+* **[nginx](nginx/nginx.mkd)** — 安装、启停、站点配置（样例 [nginx/example](nginx/example)）。
+* **[linux](linux/Screen.md)** — GNU Screen 快捷键。
+* **[git](git/git.mkd)** — 工作区、暂存区、常用命令。
+* **[svn](svn/README.mkd)** — 安装与 checkout / commit。
+* **[tools/wireShark_INS.sh](tools/wireShark_INS.sh)** — Wireshark 安装脚本（写死了用户名，先读再跑）。
 
-来源：[notes](https://github.com/darkframemaster/notes) 的 `master` 分支。`sklearn_tutorial/intro.ipynb` 放到 `sklearn/intro.ipynb`。
+## Web
 
-Imported from [notes](https://github.com/darkframemaster/notes) `master`. `sklearn_tutorial/intro.ipynb` is at `sklearn/intro.ipynb`.
+* **[html-css](html-css/html.mkd)** — HTML 与 [CSS](html-css/css.mkd)，附一个静态页。目录原先叫 `html&css`。
+* **[web_roadmap](web_roadmap/roadmap.mkd)** — 学习路线链接。[动态网站笔记](web_roadmap/build_dynamic_website/dynamic-web-design.mkd) 与 lecture 示例，[书签汇总](web_roadmap/Marked.md)。
 
-- [intro.ipynb](sklearn/intro.ipynb)
-  - 数据加载：`sklearn.datasets` 的 iris（150×4）和 digits
-  - 标题「监督学习：从高维观察预测输出变量」；其后的代码单元是空的
+## 机器学习 / Machine learning
 
-- [intro.ipynb](sklearn/intro.ipynb)
-  - Data loading: iris (150×4) and digits from `sklearn.datasets`
-  - Heading “监督学习：从高维观察预测输出变量”; the code cell under it is empty
+* **[tensorflow](tensorflow/README.mkd)** — 很早的安装笔记，以及 [basic](tensorflow/basic/variable.py) 里的 variable / session / feed 示例。
+* **[sklearn/intro.ipynb](sklearn/intro.ipynb)** — 来自 [notes](https://github.com/darkframemaster/notes)。加载 iris（150×4）和 digits，并画出最后一张数字图。标题「监督学习：从高维观察预测输出变量」下面的代码单元是空的，没有补写。
+* `ml-math-notes` 保持独立，不要合并进来。和 TensorFlow 笔记内容不重叠，所以 sklearn 单独放。
 
-## 来源与相关仓库 / Sources and a related repo
+`sklearn/intro.ipynb` loads iris and digits, then stops. The supervised-learning cell is empty and was left empty. Do not merge `ml-math-notes` into this repo.
 
-| 仓库 | 关系 |
-|------|------|
-| [dfx-note](https://github.com/darkframemaster/dfx-note) | `compute-networking/` 的来源。笔记已并入本仓库，该仓库之后可以归档。 |
-| [notes](https://github.com/darkframemaster/notes) | `sklearn/intro.ipynb` 的来源。笔记已并入本仓库，该仓库之后可以归档。 |
-| [ml-math-notes](https://github.com/darkframemaster/ml-math-notes) | 相关但独立的项目，继续单独维护，**没有**导入本仓库。 |
+## 课程、阅读、杂项 / Courses, reading, misc
 
-| Repository | Relationship |
-|------------|----------------|
-| [dfx-note](https://github.com/darkframemaster/dfx-note) | Source of `compute-networking/`. Those notes now live here; that repo can be archived later. |
-| [notes](https://github.com/darkframemaster/notes) | Source of `sklearn/intro.ipynb`. That notebook now lives here; that repo can be archived later. |
-| [ml-math-notes](https://github.com/darkframemaster/ml-math-notes) | A related project that stays separate. Nothing from it is imported into this repository. |
+课程和阅读笔记尽量原样保留。University and reading notes are kept as-is unless a file was empty or a duplicate.
+
+* **[university](university/)** — [软件工程](university/software-engineering/software-engineering.md)、[编译原理](university/编译原理/编译原理.md)、[数据库](university/数据库/DB.md)、[系统分析与设计](university/系统分析与设计/系统分析与设计.mkd)、[密码学](university/密码学/Cryptography.mkd)、[术语](university/hotword.mkd)。课件 ppt/pptx 仍在对应目录。
+* **[reading_note/sicp.mkd](reading_note/sicp.mkd)** — SICP 题词。
+* **[just-for-fun](just-for-fun/)** — [OpenGL 小游戏](just-for-fun/a-game-of-opengl-master/main.cpp)、[图片转字符](just-for-fun/pic-python/readme.mkd)。
+
+## 环境脚本 / Environment scripts
+
+仍保留、但针对旧 Ubuntu 的安装脚本：
+
+Still in the tree, aimed at old Ubuntu releases:
+
+* `php/setPHP.sh`、`php/setPHP_5.sh`、`php/Magento/setUp.sh`
+* `python/setPython.sh`、`python/setPython2.sh`、`python/setPython_15.sh`
+* `docker/setup.sh`、`etcd/install.sh`、`tools/wireShark_INS.sh`
+
+`SQL/uninstallMysql.sh` 已删除。它会递归删掉 MySQL 数据目录，并卸载 AppArmor。
+
+`SQL/uninstallMysql.sh` was removed. It recursively deleted the MySQL data directory and uninstalled AppArmor.

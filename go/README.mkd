@@ -1,4 +1,4 @@
-#Ruby
+# Go
 ## 1. install ruby in ubuntu.
 get package from [https://golang.org/dl/](https://golang.org/dl/)
 

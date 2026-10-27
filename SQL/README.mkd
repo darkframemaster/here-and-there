@@ -157,3 +157,9 @@ WHERE
 	albums.year > 1980;
 ```
 
+## 同目录里的其它笔记 / Also in this folder
+
+* [postgreSQL](postgreSQL/README.mkd) — 安装、索引、锁、性能。
+* PyLucene 不是 SQL，安装笔记已挪到 [python/pylucene.md](../python/pylucene.md)。
+* 旧的 `uninstallMysql.sh` 已删除：它会递归删除 `/var/lib/mysql` 和 `/etc/mysql`，并且 `apt-get remove apparmor`。不要再跑类似命令。The old uninstall script was removed because it wiped MySQL's data directory and uninstalled AppArmor.
+

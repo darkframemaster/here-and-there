@@ -1,5 +1,15 @@
-#python
-> python is great!
+# Python
 
-## 0. install python in ubuntu
-python(normally version 2.7) is already installed in ubuntu.
+Ubuntu 上通常已经带有 Python 2.7。下面按主题分目录。Python 2.7 is often already installed; notes are grouped by topic.
+
+* [know-python](know-python/) — 语法与小例子：排序、生成器、下划线、多进程 / 多线程（[processes-and-threads.mkd](know-python/multiProgram/processes-and-threads.mkd)）。
+* [django](django/README.mkd) — 视图、模型、验证码小实验。
+* [pygame](pygame/README.md) — 按天记的 pygame 练习。
+* [computer-networking](computer-networking/README.md) — socket 与爬虫。教材提纲在 [compute-networking](../compute-networking/computer-networking.md)。
+* scikit-learn 入门在 [sklearn/intro.ipynb](../sklearn/intro.ipynb)，没有并进本目录。
+* [BeautifulSoup.md](BeautifulSoup.md) — 解析 HTML。
+* [pylucene.md](pylucene.md) — PyLucene 安装笔记（原先误放在 `SQL/`）。
+* `setPython.sh`、`setPython2.sh`、`setPython_15.sh` — Ubuntu 16.04 时代的环境脚本，运行前先读一遍。
+* `helloworld.py`
+
+TensorFlow 在独立目录 [tensorflow](../tensorflow/README.mkd)，和这份 sklearn 笔记本内容不重叠，没有合并。`ml-math-notes` 是另一个仓库，本目录不收录。

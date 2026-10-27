@@ -52,7 +52,7 @@ There are several coding standards that Magento abides by,such as the following 
 * [The JS coding standard](https://www.google.github.io/styleguide/javascriptguide.xml)
 * The jQuery widget coding standard
 * The DocBlock standard
-* [JS DocBlock standard](http:usejsdoc.org)
+* [JS DocBlock standard](https://usejsdoc.org)
 * The LESS coding standard
 
 

@@ -96,7 +96,7 @@ If the module is a service that may call an API, or does some other work that is
 
 
 ### Events and observers
-> see `./code/module/Verdor/ModuleName/Observer/README.mkd`
+> see `./code/module/Vendor/ModuleName/Observer/README.mkd`
 
 * Create new events
 * Dispatching(发出) events
